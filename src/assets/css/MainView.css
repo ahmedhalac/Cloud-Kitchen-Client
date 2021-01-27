@@ -1,0 +1,6 @@
+.main-view {
+  width: 81%;
+  margin-left: 20%;
+  overflow: scroll;
+  height: 100%;
+}

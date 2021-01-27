@@ -1,0 +1,17 @@
+.forbidden {
+  height: 100vh;
+}
+
+.row {
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.container-403 {
+  margin-top: 100px;
+  margin-left: 370px;
+}
+
+.btn.btn-403 {
+  margin-top: 50px;
+}

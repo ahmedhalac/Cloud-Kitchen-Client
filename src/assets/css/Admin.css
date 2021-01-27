@@ -1,0 +1,36 @@
+.admin {
+  background: #ecf0f1;
+  height: 100vh;
+  display: flex;
+}
+
+.logout {
+  margin: 5px 5px;
+  position: absolute;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+}
+
+.add-user-text {
+  padding-top: 50px;
+  margin-left: 10px;
+}
+
+.add-user-text h4 {
+  padding-left: 30px;
+  font-weight: 500;
+}
+
+.btn.custom-success {
+  background-color: #619e9a;
+}
+
+.btn.btn.custom-success:hover {
+  background-color: #578e8b;
+}
+
+.btn.custom-add {
+  margin: 30px 40px;
+}
