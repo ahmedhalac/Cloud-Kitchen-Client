@@ -135,7 +135,7 @@ class AddUser extends Component {
           data-toggle="modal"
           data-target="#exampleModal"
         >
-          <i className="fa fa-user-plus fa-lg"></i>
+          <i className="fal fa-user-plus fa-lg"></i>
         </button>
 
         <div
@@ -246,7 +246,7 @@ class AddUser extends Component {
                         </button>
                         <button className="btn custom-success btn-success ml-4">
                           <i
-                            className="fa fa-floppy-o fa-lg"
+                            className="fal fa-save fa-lg"
                             aria-hidden="true"
                           ></i>
                         </button>

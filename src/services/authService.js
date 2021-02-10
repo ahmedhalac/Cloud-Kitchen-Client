@@ -71,13 +71,14 @@ class AuthService {
     });
   }
 
-  editRestaurant(id, name, address, city, stars, typeId) {
+  editRestaurant(id, name, address, city, stars, typeId, deliver_distance) {
     return axios.put(API_URL + `edit-restaurant/${id}`, {
       name,
       address,
       city,
       stars,
       typeId,
+      deliver_distance,
     });
   }
 

@@ -151,7 +151,7 @@ class Restaurant extends Component {
           data-toggle="modal"
           data-target="#exampleModal"
         >
-          <i className="fa fa-plus-circle fa-lg" aria-hidden="true"></i>
+          <i className="fal fa-plus-circle fa-lg" aria-hidden="true"></i>
           <span className="ml-1">Dodaj</span>
         </button>
 
@@ -270,7 +270,7 @@ class Restaurant extends Component {
                         </button>
                         <button className="btn custom-success btn-success ml-4">
                           <i
-                            className="fa fa-floppy-o fa-lg"
+                            className="fal fa-save fa-lg"
                             aria-hidden="true"
                           ></i>
                         </button>

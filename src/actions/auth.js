@@ -194,16 +194,23 @@ export const getRestaurants = () => async (dispatch) => {
 };
 
 //EDIT Restaurant
-export const editRestaurant = (id, name, address, city, stars, typeId) => (
-  dispatch
-) => {
+export const editRestaurant = (
+  id,
+  name,
+  address,
+  city,
+  stars,
+  typeId,
+  deliver_distance
+) => (dispatch) => {
   return AuthService.editRestaurant(
     id,
     name,
     address,
     city,
     stars,
-    typeId
+    typeId,
+    deliver_distance
   ).then(
     (response) => {
       dispatch({ type: EDIT_RESTAURANT, payload: response.data });

@@ -10,6 +10,7 @@ import FoodType from "./components/views/Admin/MainView/Restaurant/FoodType";
 import Home2 from "./components/views/RestaurantAdmin/MainView/Home/Home";
 import AddDeliverer from "./components/views/RestaurantAdmin/MainView/AddDeliverer/AddDeliverer";
 import FoodDetails from "./components/views/RestaurantAdmin/MainView/Food/FoodDetails";
+import RestaurantEdit from "./components/views/RestaurantAdmin/MainView/Restaurant/RestaurantEdit";
 
 export const Routes = () => {
   return (
@@ -29,6 +30,11 @@ export const Routes = () => {
         exact
         path="/restaurant_admin/food-details"
         component={FoodDetails}
+      />
+      <Route
+        exact
+        path="/restaurant_admin/restaurant"
+        component={RestaurantEdit}
       />
       <Route component={NotFound} />
     </Switch>

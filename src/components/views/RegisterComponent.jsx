@@ -164,9 +164,8 @@ class RegisterComponent extends Component {
       <div className="col-md-12">
         <div className="card card-container">
           <i
-            className="fa fa-user-plus profile-img-card fa-5x"
+            className="fal fa-user-plus profile-img-card fa-4x"
             aria-hidden="true"
-            style={{ color: "#4d4d4d" }}
           ></i>
 
           <Form
@@ -178,11 +177,11 @@ class RegisterComponent extends Component {
           >
             {!this.state.successful && (
               <div>
-                <div className="form-group">
-                  <label htmlFor="first_name">Ime</label>
+                <div className="input-container">
                   <Input
                     type="text"
-                    className="form-control"
+                    className="input"
+                    placeholder="Ime"
                     name="first_name"
                     value={this.state.first_name}
                     onChange={this.onChangeFirstName}
@@ -190,11 +189,11 @@ class RegisterComponent extends Component {
                   />
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="last_name">Prezime</label>
+                <div className="input-container">
                   <Input
                     type="text"
-                    className="form-control"
+                    className="input"
+                    placeholder="Prezime"
                     name="last_name"
                     value={this.state.last_name}
                     onChange={this.onChangeLastName}
@@ -202,11 +201,11 @@ class RegisterComponent extends Component {
                   />
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="email">Email</label>
+                <div className="input-container">
                   <Input
                     type="text"
-                    className="form-control"
+                    className="input"
+                    placeholder="Email"
                     name="email"
                     value={this.state.email}
                     onChange={this.onChangeEmail}
@@ -214,11 +213,11 @@ class RegisterComponent extends Component {
                   />
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="address">Adresa</label>
+                <div className="input-container">
                   <Input
                     type="text"
-                    className="form-control"
+                    className="input"
+                    placeholder="Adresa"
                     name="address"
                     value={this.state.address}
                     onChange={this.onChangeAddress}
@@ -226,12 +225,12 @@ class RegisterComponent extends Component {
                   />
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="password">Lozinka</label>
+                <div className="input-container">
                   <Input
                     autoComplete="new-password"
                     type="password"
-                    className="form-control"
+                    placeholder="Lozinka"
+                    className="input"
                     name="password"
                     value={this.state.password}
                     onChange={this.onChangePassword}
