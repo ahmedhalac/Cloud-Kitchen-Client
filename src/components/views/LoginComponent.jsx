@@ -80,7 +80,7 @@ class LoginComponent extends Component {
       return <Redirect to={`/${user.roles}`} />;
     }
     return (
-      <div className="col-md-12">
+      <div className="col-md-12 login-page">
         <div className="card card-container">
           <i
             className="fal fa-user profile-img-card fa-4x"

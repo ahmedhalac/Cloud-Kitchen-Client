@@ -8,9 +8,10 @@ import Restaurant from "./components/views/Admin/MainView/Restaurant/Restaurant"
 import RestaurantType from "./components/views/Admin/MainView/Restaurant/RestaurantType";
 import FoodType from "./components/views/Admin/MainView/Restaurant/FoodType";
 import Home2 from "./components/views/RestaurantAdmin/MainView/Home/Home";
-import AddDeliverer from "./components/views/RestaurantAdmin/MainView/AddDeliverer/AddDeliverer";
+import AddDeliverer from "./components/views/RestaurantAdmin/MainView/Deliverer/AddDeliverer";
 import FoodDetails from "./components/views/RestaurantAdmin/MainView/Food/FoodDetails";
 import RestaurantEdit from "./components/views/RestaurantAdmin/MainView/Restaurant/RestaurantEdit";
+import MenuName from "./components/views/RestaurantAdmin/MainView/GroupMenus/MenuName";
 
 export const Routes = () => {
   return (
@@ -21,6 +22,7 @@ export const Routes = () => {
       <Route exact path="/admin/restaurant-type" component={RestaurantType} />
       <Route exact path="/admin/food-type" component={FoodType} />
       <Route exact path="/restaurant_admin" component={Home2} />
+
       <Route
         exact
         path="/restaurant_admin/add-deliverer"
@@ -36,6 +38,8 @@ export const Routes = () => {
         path="/restaurant_admin/restaurant"
         component={RestaurantEdit}
       />
+      <Route exact path="/restaurant_admin/group-menu" component={MenuName} />
+
       <Route component={NotFound} />
     </Switch>
   );

@@ -20,6 +20,7 @@ const Cards = ({
         style={{
           width: "17rem",
           padding: "0",
+          marginBottom: "2em",
           fontWeight: "normal",
         }}
       >

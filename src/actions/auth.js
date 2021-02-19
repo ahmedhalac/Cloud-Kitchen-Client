@@ -17,6 +17,11 @@ import {
   DELETE_RESTAURANT_TYPE,
   DELETE_FOOD_TYPE,
   ADD_FOOD_DETAILS,
+  ADD_MENU_NAME,
+  FETCH_FOOD,
+  FETCH_MENU_NAMES,
+  ADD_GROUP_MENU,
+  FETCH_GROUP_MENUS,
 } from "./types";
 
 import AuthService from "../services/authService";
@@ -308,6 +313,12 @@ export const addFoodType = (name) => (dispatch) => {
   );
 };
 
+//GET Food
+export const getFood = () => async (dispatch) => {
+  const response = await AuthService.getFood();
+  dispatch({ type: FETCH_FOOD, payload: response.data });
+};
+
 //GET Food Type
 export const getFoodType = () => async (dispatch) => {
   const response = await AuthService.getFoodType();
@@ -406,4 +417,84 @@ export const addFoodDetails = (
       return Promise.reject();
     }
   );
+};
+
+//ADD Menu name
+export const addMenuName = (menu_name) => (dispatch) => {
+  return AuthService.addMenuName(menu_name).then(
+    (response) => {
+      dispatch({ type: ADD_MENU_NAME, payload: response.data });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: response.data.message,
+      });
+
+      return Promise.resolve();
+    },
+    (error) => {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      dispatch({
+        type: REGISTER_FAIL,
+      });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: message,
+      });
+      return Promise.reject();
+    }
+  );
+};
+
+//GET Menu name
+export const getMenuName = () => async (dispatch) => {
+  const response = await AuthService.getMenuName();
+  dispatch({ type: FETCH_MENU_NAMES, payload: response.data });
+};
+
+//EDIT Restaurant
+export const addGroupMenu = (restaurantId, menuNameId, foodId) => (
+  dispatch
+) => {
+  return AuthService.addGroupMenu(restaurantId, menuNameId, foodId).then(
+    (response) => {
+      dispatch({ type: ADD_GROUP_MENU, payload: response.data });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: response.data.message,
+      });
+
+      return Promise.resolve();
+    },
+    (error) => {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      dispatch({
+        type: REGISTER_FAIL,
+      });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: message,
+      });
+      return Promise.reject();
+    }
+  );
+};
+
+//GET group menus
+export const getGroupMenus = () => async (dispatch) => {
+  const response = await AuthService.getGroupMenus();
+  dispatch({ type: FETCH_GROUP_MENUS, payload: response.data });
 };

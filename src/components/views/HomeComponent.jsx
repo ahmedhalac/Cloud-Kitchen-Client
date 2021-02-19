@@ -85,7 +85,24 @@ const HomeComponent = (props) => {
           </div>
         </div>
       </section>
-      <div className="regular_img"></div>
+
+      <section className="group-menu text-center" id="group-menu">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8 mx-auto">
+              <h2 className="text-white mb-4">Grupni meniji</h2>
+              <p className="text-white-50">
+                Online restoran Cloud Kitchen nudi izvrsne obroke vrhunske
+                kvalitete.
+              </p>
+            </div>
+          </div>
+
+          <a href="/group-menu">
+            <button className="btn btn-primary">GRUPNI MENI</button>
+          </a>
+        </div>
+      </section>
 
       {/* Projects */}
       <section className="projects-section bg-light" id="projects">

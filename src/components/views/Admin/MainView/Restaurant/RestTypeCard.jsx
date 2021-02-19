@@ -13,6 +13,7 @@ const RestTypeCard = ({ id = "", name = "" }) => {
         style={{
           width: "17rem",
           padding: "0",
+          marginBottom: "2em",
           textAlign: "center",
           fontWeight: "600",
         }}

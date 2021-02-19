@@ -1,13 +1,15 @@
-import React, { Fragment, Component } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import "../../../../../assets/css/Restaurant.css";
 
 import Cards from "../../../../Cards";
 
-import { addRestaurant } from "../../../../../actions/auth";
-import { getRestaurants } from "../../../../../actions/auth";
-import { getRestaurantTypes } from "../../../../../actions/auth";
+import {
+  addRestaurant,
+  getRestaurants,
+  getRestaurantTypes,
+} from "../../../../../actions/auth";
 
 class RestaurantEdit extends Component {
   constructor(props) {
@@ -128,13 +130,13 @@ class RestaurantEdit extends Component {
   render() {
     const { message } = this.props;
     return (
-      <Fragment>
+      <>
         <div className="add-user-text">
           <h4>Uređivanje podataka o restoranu</h4>
         </div>
 
         <div className="card-container">{this.renderRestaurants()}</div>
-      </Fragment>
+      </>
     );
   }
 }
