@@ -10,6 +10,10 @@ import {
   DELETE_RESTAURANT_TYPE,
   DELETE_FOOD_TYPE,
   ADD_FOOD_DETAILS,
+  FETCH_FOOD,
+  FETCH_MENU_NAMES,
+  ADD_GROUP_MENU,
+  FETCH_GROUP_MENUS,
 } from "../actions/types";
 
 const initialState = {
@@ -17,6 +21,9 @@ const initialState = {
   foodTypes: [],
   foodDetails: [],
   rest: [],
+  food: [],
+  menuNames: [],
+  groupMenu: [],
 };
 
 export default function restaurantReducer(state = initialState, action) {
@@ -36,6 +43,12 @@ export default function restaurantReducer(state = initialState, action) {
       return {
         ...state,
         foodDetails: { ...state.foodDetails, ...payload },
+      };
+
+    case ADD_GROUP_MENU:
+      return {
+        ...state,
+        groupMenu: { ...state.groupMenu, ...payload },
       };
     case FETCH_RESTAURANT_TYPES:
       return {
@@ -83,6 +96,23 @@ export default function restaurantReducer(state = initialState, action) {
       }, {});
 
       return { ...state, foodTypes: newState2 };
+
+    case FETCH_FOOD:
+      return {
+        ...state,
+        food: payload,
+      };
+
+    case FETCH_MENU_NAMES:
+      return {
+        ...state,
+        menuNames: payload,
+      };
+    case FETCH_GROUP_MENUS:
+      return {
+        ...state,
+        menuNames: payload,
+      };
 
     default:
       return state;

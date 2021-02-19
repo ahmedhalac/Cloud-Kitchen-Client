@@ -114,6 +114,12 @@ class AuthService {
     });
   }
 
+  getFood(name) {
+    return axios.get(API_URL + "get-food", {
+      name,
+    });
+  }
+
   getFoodType(name) {
     return axios.get(API_URL + "get-food-type", {
       name,
@@ -132,6 +138,34 @@ class AuthService {
 
   deleteFoodType(id) {
     return axios.delete(API_URL + `delete-food-type/${id}`);
+  }
+
+  addMenuName(menu_name) {
+    return axios.post(API_URL + "add-menu-name", {
+      menu_name,
+    });
+  }
+
+  getMenuName(menu_name) {
+    return axios.get(API_URL + "get-menu-name", {
+      menu_name,
+    });
+  }
+
+  addGroupMenu(restaurantId, menuNameId, foodId) {
+    return axios.post(API_URL + "add-group-menu", {
+      restaurantId,
+      menuNameId,
+      foodId,
+    });
+  }
+
+  getGroupMenus(res_name, menu_name, food_name) {
+    return axios.get(API_URL + "get-group-menus", {
+      res_name,
+      menu_name,
+      food_name,
+    });
   }
 }
 

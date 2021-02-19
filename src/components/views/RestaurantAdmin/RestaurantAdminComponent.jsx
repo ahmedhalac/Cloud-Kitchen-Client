@@ -12,6 +12,7 @@ import restaurantIcon from "../../../assets/img/icons/restaurant_icon.svg";
 import homeIcon from "../../../assets/img/icons/home.svg";
 import deliverer from "../../../assets/img//icons/delivery-man.svg";
 import businessman from "../../../assets/img//icons/businessman.svg";
+import groupMenu from "../../../assets/img/icons/group_menu.svg";
 
 export default class RestaurantAdminComponent extends Component {
   constructor(props) {
@@ -45,7 +46,7 @@ export default class RestaurantAdminComponent extends Component {
     {
       name: "Grupni Meniji",
       to: "/restaurant_admin/group-menu",
-      icon: restaurantIcon,
+      icon: groupMenu,
     },
   ];
   componentDidMount() {

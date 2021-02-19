@@ -161,7 +161,7 @@ class RegisterComponent extends Component {
     const { message } = this.props;
 
     return (
-      <div className="col-md-12">
+      <div className="col-md-12 login-page">
         <div className="card card-container">
           <i
             className="fal fa-user-plus profile-img-card fa-4x"
