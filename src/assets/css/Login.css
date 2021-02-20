@@ -10,14 +10,14 @@
       no-repeat center fixed;
   background-origin: content-box;
   background-size: cover;
-  height: 108vh;
+  height: 100vh;
 }
 
 .card-container.card {
   position: absolute;
-  max-width: 350px !important;
+  max-width: 380px !important;
   padding: 40px 40px;
-  margin-top: 3%;
+  margin-top: 5%;
   left: 0;
   right: 0;
   margin-left: auto;
