@@ -1,4 +1,4 @@
-import "../../assets/css/LoginRegister.css";
+import "../../assets/css/Login.css";
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 

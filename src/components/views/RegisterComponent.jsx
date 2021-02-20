@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../../assets/css/Register.css";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
@@ -11,7 +12,7 @@ const required = (value) => {
   if (!value) {
     return (
       <div className="alert alert-danger" role="alert">
-        This field is required!
+        Ovo polje je obavezno!
       </div>
     );
   }
@@ -21,7 +22,7 @@ const email = (value) => {
   if (!isEmail(value)) {
     return (
       <div className="alert alert-danger" role="alert">
-        This is not a valid email.
+        Email nije validan!.
       </div>
     );
   }
@@ -31,7 +32,7 @@ const vFirstName = (value) => {
   if (value.length < 3 || value.length > 20) {
     return (
       <div className="alert alert-danger" role="alert">
-        First name must be between 3 and 20 characters.
+        Ime mora biti između 3 i 20 karaktera.
       </div>
     );
   }
@@ -41,17 +42,7 @@ const vLastName = (value) => {
   if (value.length < 3 || value.length > 20) {
     return (
       <div className="alert alert-danger" role="alert">
-        Last name must be between 3 and 20 characters.
-      </div>
-    );
-  }
-};
-
-const vaddress = (value) => {
-  if (value.length < 3) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        Adress must be greater than 3.
+        Prezime mora biti između 3 i 20 karaktera.
       </div>
     );
   }
@@ -61,7 +52,7 @@ const vpassword = (value) => {
   if (value.length < 6 || value.length > 40) {
     return (
       <div className="alert alert-danger" role="alert">
-        The password must be between 6 and 40 characters.
+        Lozinka mora biti veća od 6 a manja od 40 karaktera.
       </div>
     );
   }
@@ -70,6 +61,8 @@ const vpassword = (value) => {
 class RegisterComponent extends Component {
   constructor(props) {
     super(props);
+    this.autocompleteInput = React.createRef();
+    this.autocomplete = null;
     this.handleRegister = this.handleRegister.bind(this);
     this.onChangeFirstName = this.onChangeFirstName.bind(this);
     this.onChangeLastName = this.onChangeLastName.bind(this);
@@ -86,6 +79,17 @@ class RegisterComponent extends Component {
       role: "customer",
       successful: false,
     };
+  }
+
+  componentDidMount() {
+    this.autocomplete = new window.google.maps.places.Autocomplete(
+      this.autocompleteInput.current,
+      {
+        types: ["geocode"],
+      }
+    );
+
+    this.autocomplete.addListener("place_changed", this.onChangeAddress);
   }
 
   onChangeFirstName(e) {
@@ -106,9 +110,11 @@ class RegisterComponent extends Component {
     });
   }
 
-  onChangeAddress(e) {
+  onChangeAddress() {
+    const place = this.autocomplete.getPlace();
+    console.log(place.formatted_address);
     this.setState({
-      address: e.target.value,
+      address: place.formatted_address,
     });
   }
 
@@ -117,12 +123,6 @@ class RegisterComponent extends Component {
       password: e.target.value,
     });
   }
-
-  /*onChangeRole(e) {
-    this.setState({
-      role: e.target.value,
-    });
-  }*/
 
   handleRegister(e) {
     e.preventDefault();
@@ -159,10 +159,9 @@ class RegisterComponent extends Component {
 
   render() {
     const { message } = this.props;
-
     return (
-      <div className="col-md-12 login-page">
-        <div className="card card-container">
+      <div className="col-md-12 register-page">
+        <div className="card card-container register">
           <i
             className="fal fa-user-plus profile-img-card fa-4x"
             aria-hidden="true"
@@ -214,15 +213,13 @@ class RegisterComponent extends Component {
                 </div>
 
                 <div className="input-container">
-                  <Input
+                  <input
                     type="text"
                     className="input"
                     placeholder="Adresa"
+                    ref={this.autocompleteInput}
                     name="address"
-                    value={this.state.address}
-                    onChange={this.onChangeAddress}
-                    validations={[required, vaddress]}
-                  />
+                  ></input>
                 </div>
 
                 <div className="input-container">
