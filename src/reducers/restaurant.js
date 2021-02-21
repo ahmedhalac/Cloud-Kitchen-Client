@@ -14,6 +14,7 @@ import {
   FETCH_MENU_NAMES,
   ADD_GROUP_MENU,
   FETCH_GROUP_MENUS,
+  FETCH_ORDER_DATA,
 } from "../actions/types";
 
 const initialState = {
@@ -24,6 +25,7 @@ const initialState = {
   food: [],
   menuNames: [],
   groupMenu: [],
+  orderData: [],
 };
 
 export default function restaurantReducer(state = initialState, action) {
@@ -112,6 +114,12 @@ export default function restaurantReducer(state = initialState, action) {
       return {
         ...state,
         menuNames: payload,
+      };
+
+    case FETCH_ORDER_DATA:
+      return {
+        ...state,
+        orderData: payload,
       };
 
     default:

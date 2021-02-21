@@ -160,10 +160,18 @@ class AuthService {
     });
   }
 
-  getGroupMenus(res_name, menu_name, food_name) {
+  getGroupMenus(res_name, menu_name, food_name, price) {
     return axios.get(API_URL + "get-group-menus", {
       res_name,
       menu_name,
+      food_name,
+      price,
+    });
+  }
+
+  getOrderData(food_type, food_name) {
+    return axios.get(API_URL + "get-order-data", {
+      food_type,
       food_name,
     });
   }

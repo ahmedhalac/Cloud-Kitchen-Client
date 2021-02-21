@@ -22,6 +22,7 @@ import {
   FETCH_MENU_NAMES,
   ADD_GROUP_MENU,
   FETCH_GROUP_MENUS,
+  FETCH_ORDER_DATA,
 } from "./types";
 
 import AuthService from "../services/authService";
@@ -497,4 +498,10 @@ export const addGroupMenu = (restaurantId, menuNameId, foodId) => (
 export const getGroupMenus = () => async (dispatch) => {
   const response = await AuthService.getGroupMenus();
   dispatch({ type: FETCH_GROUP_MENUS, payload: response.data });
+};
+
+//GET Order Data
+export const getOrderData = () => async (dispatch) => {
+  const response = await AuthService.getOrderData();
+  dispatch({ type: FETCH_ORDER_DATA, payload: response.data });
 };

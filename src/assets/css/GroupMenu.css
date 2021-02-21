@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+
+.container-fluid {
+  height: 100%;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6) 40%,
+      rgba(0, 0, 0, 0.1) 75%,
+      #000000 100%
+    ),
+    url("https://images.unsplash.com/photo-1612877763359-3ddd2f36ed95?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1868&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+.title-menu {
+  font-family: "Satisfy", cursive;
+  padding: 15px;
+  font-size: 2.5em;
+  text-align: center;
+  color: white;
+}
+
+.row-menu {
+  margin-top: 10px;
+}
+
+.row-menu-item {
+  width: 40%;
+  background-color: rgba(245, 243, 237, 0.5);
+  margin: 0 auto;
+  color: black;
+  border: 1px solid rgb(133, 130, 130);
+  border-radius: 15px;
+}
+
+.menu-item {
+  text-align: center;
+}
+
+.menu-item p {
+  font-size: 1.1em;
+}
+
+.menu-name {
+  font-weight: 600;
+}
+
+.price {
+  font-weight: 600;
+}
+
+.home-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  transition: none;
+  margin-top: 1.5rem;
+  padding: 0.3rem 1.6rem;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid white;
+  border-radius: 7px;
+  letter-spacing: 0.1px;
+}
+
+.home-btn:hover {
+  transition: none;
+  color: black;
+  background-color: white;
+  transition: 1s;
+}

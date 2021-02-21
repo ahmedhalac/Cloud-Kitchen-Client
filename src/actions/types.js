@@ -24,3 +24,4 @@ export const FETCH_FOOD = "FETCH_FOOD";
 export const FETCH_MENU_NAMES = "FETCH_MENU_NAMES";
 export const ADD_GROUP_MENU = "ADD_GROUP_MENU";
 export const FETCH_GROUP_MENUS = "FETCH_GROUP_MENUS";
+export const FETCH_ORDER_DATA = "FETCH_ORDER_DATA";

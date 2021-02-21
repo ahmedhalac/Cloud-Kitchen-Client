@@ -1,0 +1,77 @@
+.row.order {
+  margin: 0;
+  margin-top: 40px;
+}
+
+.food-type {
+  background-color: rgb(180, 109, 109);
+  padding: 15px;
+}
+
+.col-sm-4 {
+  height: 70vh;
+  width: 300px;
+  background-color: #ecf0f1;
+  border: 1px solid black;
+  position: relative;
+}
+
+.order-price {
+  position: absolute;
+  margin: 10px;
+  bottom: 0;
+  right: 0;
+}
+
+.quantity {
+  position: absolute;
+  margin: 10px;
+  bottom: 0;
+  left: 0;
+}
+
+@media (max-width: 992px) {
+  .order-btn {
+  }
+
+  .quantity {
+    position: absolute;
+    margin: 10px;
+    bottom: 40;
+  }
+}
+
+.order-btn {
+  background-color: orange;
+  letter-spacing: 0.1px;
+}
+
+.order-btn:hover {
+  background-color: lightcoral;
+}
+
+.order-img {
+  width: 100%;
+  height: 50%;
+}
+
+.home {
+  transition: none;
+
+  padding: 0.3rem 1.6rem;
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid white;
+  border-radius: 7px;
+  letter-spacing: 0.1px;
+}
+
+.home:hover {
+  transition: none;
+  color: black;
+  background-color: white;
+  transition: 1s;
+}
+
+.food-name {
+  padding-top: 20px;
+}
