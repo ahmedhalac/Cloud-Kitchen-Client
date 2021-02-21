@@ -23,7 +23,7 @@
   right: 0;
 }
 
-.quantity {
+.price {
   position: absolute;
   margin: 10px;
   bottom: 0;
@@ -31,14 +31,6 @@
 }
 
 @media (max-width: 992px) {
-  .order-btn {
-  }
-
-  .quantity {
-    position: absolute;
-    margin: 10px;
-    bottom: 40;
-  }
 }
 
 .order-btn {
@@ -57,7 +49,6 @@
 
 .home {
   transition: none;
-
   padding: 0.3rem 1.6rem;
   color: rgba(255, 255, 255, 0.9);
   border: 1px solid white;
@@ -74,4 +65,21 @@
 
 .food-name {
   padding-top: 20px;
+}
+
+.cart-btn {
+  transition: none;
+  padding: 0.3rem 1.6rem;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgb(248, 77, 58);
+  border: 1px solid white;
+  border-radius: 7px;
+  letter-spacing: 0.1px;
+}
+
+.cart-btn:hover {
+  transition: none;
+  color: black;
+  background-color: white;
+  transition: 1s;
 }

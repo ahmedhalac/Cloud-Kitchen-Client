@@ -169,10 +169,30 @@ class AuthService {
     });
   }
 
-  getOrderData(food_type, food_name) {
+  getOrderData(food_type, food_name, ingredients, image, id) {
     return axios.get(API_URL + "get-order-data", {
       food_type,
       food_name,
+      ingredients,
+      image,
+      id,
+    });
+  }
+
+  addOrder(selected_food, quantity, price) {
+    return axios.post(API_URL + "add-order", {
+      selected_food,
+      quantity,
+      price,
+    });
+  }
+
+  getOrders(id, selected_food, quantity, price) {
+    return axios.get(API_URL + "get-orders", {
+      id,
+      selected_food,
+      quantity,
+      price,
     });
   }
 }

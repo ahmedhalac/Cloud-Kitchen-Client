@@ -23,6 +23,8 @@ import {
   ADD_GROUP_MENU,
   FETCH_GROUP_MENUS,
   FETCH_ORDER_DATA,
+  ADD_ORDER,
+  FETCH_ORDERS,
 } from "./types";
 
 import AuthService from "../services/authService";
@@ -504,4 +506,43 @@ export const getGroupMenus = () => async (dispatch) => {
 export const getOrderData = () => async (dispatch) => {
   const response = await AuthService.getOrderData();
   dispatch({ type: FETCH_ORDER_DATA, payload: response.data });
+};
+
+//ADD Order
+export const addOrder = (selected_food, quantity, price) => (dispatch) => {
+  return AuthService.addOrder(selected_food, quantity, price).then(
+    (response) => {
+      dispatch({ type: ADD_ORDER, payload: response.data });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: response.data.message,
+      });
+
+      return Promise.resolve();
+    },
+    (error) => {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      dispatch({
+        type: REGISTER_FAIL,
+      });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: message,
+      });
+      return Promise.reject();
+    }
+  );
+};
+
+//GET orders
+export const getOrders = () => async (dispatch) => {
+  const response = await AuthService.getOrders();
+  dispatch({ type: FETCH_ORDERS, payload: response.data });
 };

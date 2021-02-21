@@ -59,9 +59,6 @@ const HomeComponent = (props) => {
               <br />
               Pronađite hranu i naručite online
             </h2>
-            <a className="btn btn-primary  js-scroll-trigger" href="#about">
-              Započnite
-            </a>
           </div>
         </div>
       </header>
@@ -75,7 +72,7 @@ const HomeComponent = (props) => {
                 style={{ color: "white" }}
                 size={"5x"}
               />
-              <h2 className="text-white mb-4">O nama</h2>
+              <h2 className="text-white mb-4 font-weight-bold">O nama</h2>
               <p className="text-white-50">
                 Online restoran Cloud Kitchen nudi izvrsne obroke vrhunske
                 kvalitete.
@@ -96,16 +93,19 @@ const HomeComponent = (props) => {
         <div className="container">
           <div className="row">
             <div className="col-lg-8 mx-auto">
-              <h2 className="text-white mb-4">Grupni meniji</h2>
+              <h2 className="text-white mb-4 font-weight-bold">
+                Grupni meniji
+              </h2>
               <p className="text-white-50">
-                Online restoran Cloud Kitchen nudi izvrsne obroke vrhunske
-                kvalitete.
+                Grupni jelovnici (meniji) za porodične ručkove i večere vikendom
               </p>
             </div>
           </div>
 
           <a href="/group-menu">
-            <button className="btn btn-primary">GRUPNI MENI</button>
+            <button className="btn btn-primary group-menu-btn mt-5">
+              GRUPNI MENI
+            </button>
           </a>
         </div>
       </section>
@@ -240,7 +240,10 @@ const HomeComponent = (props) => {
                 Sarajevo
               </p>
               <p>
-                <i className="fa fa-envelope mr-3"></i> ahmed19halac@gmail.com
+                <i className="fa fa-envelope mr-3"></i>{" "}
+                <a href="mailto:ahmed19halac@gmail.com">
+                  ahmed19halac@gmail.com
+                </a>
               </p>
               <p>
                 <i className="fa fa-phone mr-3"></i> +38761970545

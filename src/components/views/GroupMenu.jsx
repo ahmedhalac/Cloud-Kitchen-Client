@@ -24,9 +24,9 @@ class GroupMenu extends React.Component {
     var total = 0;
     var restaurantName = "";
     return (
-      <div className="container-fluid">
+      <div className="container-fluid group-menu">
         <div className="title-menu">
-          <p>Grupni meniji</p>
+          <p>Grupni jelovnici (meniji)</p>
         </div>
         <a href="/">
           <button className="btn btn-primary home-btn">Nazad na početnu</button>

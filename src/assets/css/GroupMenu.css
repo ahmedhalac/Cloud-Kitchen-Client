@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 
-.container-fluid {
+.container-fluid.group-menu {
   height: 100%;
   background: linear-gradient(
       to bottom,
@@ -42,6 +42,7 @@
 
 .menu-item p {
   font-size: 1.1em;
+  color: black;
 }
 
 .menu-name {
