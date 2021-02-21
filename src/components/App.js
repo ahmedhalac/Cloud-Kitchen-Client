@@ -15,6 +15,7 @@ import Admin from "./views/Admin/Admin";
 import BoardDeliverer from "./views/DelivererComponent";
 import GroupMenu from "./views/GroupMenu";
 import Order from "./views/Order";
+import OrderDetails from "./views/OrderDetails";
 
 import { logout } from "../actions/auth";
 import { clearMessage } from "../actions/message";
@@ -71,6 +72,7 @@ class App extends Component {
           />
           <Route exact path="/deliverer" component={BoardDeliverer} />
           <Route exact path="/order" component={Order} />
+          <Route exact path="/order-details" component={OrderDetails} />
           <Route component={NotFound} />
         </Switch>
       </Router>

@@ -1,0 +1,19 @@
+.container-fluid.o {
+  background: gray;
+  height: 100vh;
+}
+
+.order-details {
+  background-color: lightgray;
+  height: 100vh;
+}
+
+.orders {
+  background-color: lightgreen;
+  height: 100vh;
+}
+
+.order-item {
+  border: 1px solid black;
+  height: 20%;
+}

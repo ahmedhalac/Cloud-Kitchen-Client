@@ -11213,6 +11213,26 @@ body {
     transition: 1s;
   }
 
+  /*GROUP MENU BUTTON*/
+
+  .group-menu-btn {
+    transition: none;
+    margin-top: 1.5rem;
+    padding: 0.3rem 1.6rem;
+    border: 1px solid white;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 7px;
+    letter-spacing: 0.1px;
+  }
+
+  .group-menu-btn:hover {
+    transition: none;
+    color: black;
+    background-color: white;
+    transition: 1s;
+  }
+
   /*LOGIN BUTTON*/
 
   #mainNav .nav-link.login {
