@@ -11194,6 +11194,24 @@ body {
     padding: 2rem 1.5rem;
     color: rgba(255, 255, 255, 0.6);
   }
+  /*ORDER  BUTTON*/
+  #mainNav .nav-link.order {
+    transition: none;
+    margin-top: 1.5rem;
+    padding: 0.3rem 1.6rem;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(237, 137, 7);
+    border: 0.5px solid rgba(255, 255, 255, 0.9);
+    border-radius: 7px;
+    letter-spacing: 0.2px;
+  }
+
+  #mainNav .nav-link.order:hover {
+    transition: none;
+    color: black;
+    background-color: rgba(252, 162, 43);
+    transition: 1s;
+  }
 
   /*LOGIN BUTTON*/
 
@@ -11300,16 +11318,16 @@ body {
 */
 
 .masthead h2 {
-  max-width: 20rem;
-  font-size: 1rem;
+  max-width: 30rem;
+  font-size: 1.6rem;
   padding-top: 73px;
   letter-spacing: 2px;
 }
 
 @media (min-width: 768px) {
-  .masthead h1 {
-    font-size: 4rem;
-    line-height: 4rem;
+  .masthead h2 {
+    font-size: 2rem;
+    max-width: 35rem;
   }
 }
 
@@ -11327,8 +11345,8 @@ body {
         }*/
 
   .masthead h2 {
-    max-width: 30rem;
-    font-size: 1.65rem;
+    max-width: 40rem;
+    font-size: 2.3rem;
   }
 }
 
@@ -11344,7 +11362,8 @@ body {
 }
 
 .about-section p {
-  margin-bottom: 10rem;
+  margin-bottom: 8rem;
+  font-size: 1.1em;
 }
 
 .regular_img {
@@ -11355,13 +11374,25 @@ body {
 }
 
 .group-menu {
-  background: #000000;
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 0, 0, 0.1) 0%,
+      rgba(255, 0, 0, 0.1) 75%,
+      #000000 100%
+    ),
+    url("../../assets/img/regular_pic.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+
   width: 100%;
   height: 70vh;
 }
 
 .group-menu p {
   color: white;
+  font-size: 1.1em;
 }
 
 .projects-section {

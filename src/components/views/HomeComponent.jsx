@@ -34,7 +34,13 @@ const HomeComponent = (props) => {
               {/*<li className="nav-item"><a className="nav-link js-scroll-trigger" href="#about">O nama</a></li>
                         <li className="nav-item"><a className="nav-link js-scroll-trigger" href="#signup">Kontakt</a>
                         </li>*/}
-              <li className="nav-item">
+              <li className="nav-item d-flex">
+                <a
+                  className="nav-link order js-scroll-trigger mr-2"
+                  href="/order"
+                >
+                  Naruči online
+                </a>
                 <a className="nav-link login js-scroll-trigger" href="/login">
                   Prijavi se
                 </a>
@@ -54,7 +60,7 @@ const HomeComponent = (props) => {
               Pronađite hranu i naručite online
             </h2>
             <a className="btn btn-primary  js-scroll-trigger" href="#about">
-              Get Started
+              Započnite
             </a>
           </div>
         </div>

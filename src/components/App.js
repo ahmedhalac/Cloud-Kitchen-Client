@@ -14,6 +14,7 @@ import RestaurantAdmin from "./views/RestaurantAdmin/RestaurantAdminComponent";
 import Admin from "./views/Admin/Admin";
 import BoardDeliverer from "./views/DelivererComponent";
 import GroupMenu from "./views/GroupMenu";
+import Order from "./views/Order";
 
 import { logout } from "../actions/auth";
 import { clearMessage } from "../actions/message";
@@ -69,6 +70,7 @@ class App extends Component {
             render={() => <RestaurantAdmin logOut={this.logOut} />}
           />
           <Route exact path="/deliverer" component={BoardDeliverer} />
+          <Route exact path="/order" component={Order} />
           <Route component={NotFound} />
         </Switch>
       </Router>

@@ -184,7 +184,12 @@ class FoodDetails extends Component {
                   data-dismiss="modal"
                   aria-label="Close"
                 >
-                  <span aria-hidden="true">&times;</span>
+                  <span
+                    aria-hidden="true"
+                    onClick={() => window.location.reload(false)}
+                  >
+                    &times;
+                  </span>
                 </button>
               </div>
               <div className="modal-body">
