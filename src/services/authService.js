@@ -61,13 +61,13 @@ class AuthService {
     });
   }
 
-  getRestaurants(name, address, city, stars, typeId) {
+  getRestaurants(name, address, city, stars, rt_name) {
     return axios.get(API_URL + "get-restaurants", {
       name,
       address,
       city,
       stars,
-      typeId,
+      rt_name,
     });
   }
 
@@ -193,6 +193,30 @@ class AuthService {
       selected_food,
       quantity,
       price,
+    });
+  }
+
+  deleteOrder(id) {
+    return axios.delete(API_URL + `delete-order/${id}`);
+  }
+
+  addOrderDetails(
+    first_name,
+    last_name,
+    email,
+    phone,
+    payment_type,
+    order_time,
+    note
+  ) {
+    return axios.post(API_URL + "add-order-details", {
+      first_name,
+      last_name,
+      email,
+      phone,
+      payment_type,
+      order_time,
+      note,
     });
   }
 }

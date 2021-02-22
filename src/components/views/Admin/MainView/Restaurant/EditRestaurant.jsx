@@ -126,7 +126,7 @@ class EditRestaurant extends React.Component {
 
   render() {
     const { message } = this.props;
-
+    console.log(this.props);
     return (
       <div>
         <button

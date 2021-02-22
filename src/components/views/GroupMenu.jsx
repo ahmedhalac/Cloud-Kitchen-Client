@@ -11,9 +11,6 @@ function groupBy(data, key) {
 }
 
 class GroupMenu extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     this.props.dispatch(getGroupMenus());
   }
@@ -29,7 +26,7 @@ class GroupMenu extends React.Component {
           <p>Grupni jelovnici (meniji)</p>
         </div>
         <a href="/">
-          <button className="btn btn-primary home-btn">Nazad na početnu</button>
+          <button className="btn btn-primary home-btn">Početna</button>
         </a>
         {Object.entries(groupMenu).map(([menuName, data]) => {
           total = 0; //resetujemo totalnu cijenu na 0
@@ -46,7 +43,7 @@ class GroupMenu extends React.Component {
                     </div>
                   );
                 })}
-                <h5 className="price mt-1 text-center">Cijena: {total}KM</h5>
+                <h5 className="price-gm mt-1 text-center">Cijena: {total}KM</h5>
                 <h5 className="text-center">
                   Restoran: <span>{restaurantName}</span>
                 </h5>

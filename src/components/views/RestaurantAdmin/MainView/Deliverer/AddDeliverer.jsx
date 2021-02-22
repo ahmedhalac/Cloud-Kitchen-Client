@@ -126,7 +126,7 @@ class AddDeliverer extends Component {
     const { message } = this.props;
     return (
       <Fragment>
-        <div className="add-user-text">
+        <div className="user-text">
           <h4>Kreiranje dostavljača</h4>
         </div>
         <button

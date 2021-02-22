@@ -25,6 +25,8 @@ import {
   FETCH_ORDER_DATA,
   ADD_ORDER,
   FETCH_ORDERS,
+  DELETE_ORDER,
+  ADD_ORDER_DETAILS,
 } from "./types";
 
 import AuthService from "../services/authService";
@@ -545,4 +547,59 @@ export const addOrder = (selected_food, quantity, price) => (dispatch) => {
 export const getOrders = () => async (dispatch) => {
   const response = await AuthService.getOrders();
   dispatch({ type: FETCH_ORDERS, payload: response.data });
+};
+
+//DELETE order
+export const deleteOrder = (id) => async (dispatch) => {
+  const response = await AuthService.deleteOrder(id);
+  dispatch({ type: DELETE_ORDER, payload: response.data });
+};
+
+//ADD Order Details
+export const addOrderDetails = (
+  first_name,
+  last_name,
+  email,
+  phone,
+  payment_type,
+  order_time,
+  note
+) => (dispatch) => {
+  return AuthService.addOrderDetails(
+    first_name,
+    last_name,
+    email,
+    phone,
+    payment_type,
+    order_time,
+    note
+  ).then(
+    (response) => {
+      dispatch({ type: ADD_ORDER_DETAILS, payload: response.data });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: response.data.message,
+      });
+
+      return Promise.resolve();
+    },
+    (error) => {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      dispatch({
+        type: REGISTER_FAIL,
+      });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: message,
+      });
+      return Promise.reject();
+    }
+  );
 };

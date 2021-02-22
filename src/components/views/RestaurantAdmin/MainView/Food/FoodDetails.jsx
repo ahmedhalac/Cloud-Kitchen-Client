@@ -151,7 +151,7 @@ class FoodDetails extends Component {
     const { message } = this.props;
     return (
       <>
-        <div className="add-user-text">
+        <div className="user-text">
           <h4>Administracija artikala</h4>
         </div>
         <button

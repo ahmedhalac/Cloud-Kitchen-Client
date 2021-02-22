@@ -1,0 +1,22 @@
+.contact-us {
+  background-color: #f8f9fa;
+  margin: 0;
+}
+
+.test-mailing {
+  margin: 0 auto;
+  padding-top: 20px;
+  width: 30%;
+}
+
+.mail-btn {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: black;
+  margin-top: 10px;
+  letter-spacing: normal;
+}
+
+.mail-btn:hover {
+  background-color: #ff0047;
+  color: white;
+}

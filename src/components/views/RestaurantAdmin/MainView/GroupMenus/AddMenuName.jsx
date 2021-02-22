@@ -53,7 +53,7 @@ class AddMenuName extends Component {
     const { message } = this.props;
     return (
       <>
-        <div className="add-user-text">
+        <div className="user-text">
           <h4>Kreiranje imena menija</h4>
         </div>
         <button

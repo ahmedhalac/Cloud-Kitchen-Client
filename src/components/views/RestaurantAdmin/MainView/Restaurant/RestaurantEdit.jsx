@@ -119,7 +119,7 @@ class RestaurantEdit extends Component {
             address={type.address}
             city={type.city}
             stars={type.stars}
-            typeId={type.typeId}
+            typeId={type.rt_name}
             deliver_distance={type.deliver_distance}
           />
         </div>
@@ -128,10 +128,9 @@ class RestaurantEdit extends Component {
   }
 
   render() {
-    const { message } = this.props;
     return (
       <>
-        <div className="add-user-text">
+        <div className="user-text title1">
           <h4>Uređivanje podataka o restoranu</h4>
         </div>
 

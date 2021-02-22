@@ -6,7 +6,6 @@ import Sidebar from "../../Sidebar/Sidebar";
 import MainView from "../RestaurantAdmin/MainView/MainView";
 import Forbidden from "../../Forbidden";
 
-import sidebarPic from "../../../assets/img/sidebar_radmin.jfif";
 import logo from "../../../assets/img/logo.png";
 import restaurantIcon from "../../../assets/img/icons/restaurant_icon.svg";
 import homeIcon from "../../../assets/img/icons/home.svg";
@@ -24,7 +23,6 @@ export default class RestaurantAdminComponent extends Component {
     };
   }
 
-  sidebarPic = sidebarPic;
   logoIcon = logo;
   menuItems = [
     { name: "Dashboard", to: "/restaurant_admin", icon: homeIcon },
@@ -83,7 +81,7 @@ export default class RestaurantAdminComponent extends Component {
         />
         <div className="logout" onClick={this.props.logOut}>
           <a href="/login">
-            <i className="fad fa-sign-out-alt fa-2x"></i>
+            <i className="fa fa-sign-out fa-2x"></i>
           </a>
         </div>
         <MainView />

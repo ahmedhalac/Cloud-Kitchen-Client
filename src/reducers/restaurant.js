@@ -17,6 +17,8 @@ import {
   FETCH_ORDER_DATA,
   ADD_ORDER,
   FETCH_ORDERS,
+  DELETE_ORDER,
+  ADD_ORDER_DETAILS,
 } from "../actions/types";
 
 const initialState = {
@@ -29,6 +31,7 @@ const initialState = {
   groupMenu: [],
   orderData: [],
   orders: [],
+  orderDetails: [],
 };
 
 export default function restaurantReducer(state = initialState, action) {
@@ -59,6 +62,12 @@ export default function restaurantReducer(state = initialState, action) {
       return {
         ...state,
         orders: { ...state.orders, ...payload },
+      };
+
+    case ADD_ORDER_DETAILS:
+      return {
+        ...state,
+        orderDetails: { ...state.orderDetails, ...payload },
       };
     case FETCH_RESTAURANT_TYPES:
       return {
@@ -112,6 +121,14 @@ export default function restaurantReducer(state = initialState, action) {
       }, {});
 
       return { ...state, foodTypes: newState2 };
+
+    case DELETE_ORDER:
+      let newState3 = Object.keys(state.orders).reduce((r, e) => {
+        if (!payload[e]) r[e] = state.orders[e];
+        return r;
+      }, {});
+
+      return { ...state, orders: newState3 };
 
     case FETCH_FOOD:
       return {

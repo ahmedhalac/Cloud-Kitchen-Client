@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as s from "./Sidebar.styles";
 
-const Sidebar = ({ menuItems = [], logoIcon = "", sidebarPic = "" }) => {
+const Sidebar = ({ menuItems = [], logoIcon = "" }) => {
   //state
   const [selected, setSelectedItemMenu] = useState(menuItems[0].name);
   const [isSidebarOpen, setSidebarState] = useState(true);
@@ -41,7 +41,7 @@ const Sidebar = ({ menuItems = [], logoIcon = "", sidebarPic = "" }) => {
   });
 
   return (
-    <s.SidebarContainer isSidebarOpen={isSidebarOpen} sidebarPic={sidebarPic}>
+    <s.SidebarContainer isSidebarOpen={isSidebarOpen}>
       <s.sidebarLogoContainer>
         <a href="/">
           <s.SidebarLogo isSidebarOpen={isSidebarOpen} src={logoIcon} />

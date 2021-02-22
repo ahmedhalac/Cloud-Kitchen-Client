@@ -27,3 +27,5 @@ export const FETCH_GROUP_MENUS = "FETCH_GROUP_MENUS";
 export const FETCH_ORDER_DATA = "FETCH_ORDER_DATA";
 export const ADD_ORDER = "ADD_ORDER";
 export const FETCH_ORDERS = "FETCH_ORDERS";
+export const DELETE_ORDER = "DELETE_ORDER";
+export const ADD_ORDER_DETAILS = "ADD_ORDER_DETAILS";

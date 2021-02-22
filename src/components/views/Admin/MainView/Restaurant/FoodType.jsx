@@ -78,7 +78,7 @@ class FoodType extends Component {
     const { message } = this.props;
     return (
       <Fragment>
-        <div className="add-user-text">
+        <div className="user-text">
           <h4>CRUD za Tip Hrane</h4>
         </div>
         <button
@@ -87,7 +87,7 @@ class FoodType extends Component {
           data-toggle="modal"
           data-target="#exampleModal"
         >
-          <i className="fal fa-plus-circle fa-lg" aria-hidden="true"></i>
+          <i className="fal fa-plus fa-lg" aria-hidden="true"></i>
           <span className="ml-1">Dodaj</span>
         </button>
 

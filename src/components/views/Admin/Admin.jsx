@@ -2,7 +2,6 @@ import "../../../assets/css/Admin.css";
 import React, { Component } from "react";
 
 import logo from "../../../assets/img/logo.png";
-import sidebarPic from "../../../assets/img/admin_pic.jfif";
 
 //icons
 import homeIcon from "../../../assets/img/icons/home.svg";
@@ -27,7 +26,6 @@ export default class Admin extends Component {
     };
   }
 
-  sidebarPic = sidebarPic;
   logoIcon = logo;
   menuItems = [
     { name: "Dashboard", to: "/admin/", icon: homeIcon },

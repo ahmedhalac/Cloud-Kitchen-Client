@@ -1,5 +1,5 @@
 import "../../assets/css/HomeComponent.css";
-//import template from "../../assets/img/logo-test.png";
+import Email from "./Email";
 import logoPic from "../../assets/img/logo.png";
 import React from "react";
 
@@ -72,7 +72,7 @@ const HomeComponent = (props) => {
                 style={{ color: "white" }}
                 size={"5x"}
               />
-              <h2 className="text-white mb-4 font-weight-bold">O nama</h2>
+              <h3 className="text-white mb-4 font-weight-bold">O nama</h3>
               <p className="text-white-50">
                 Online restoran Cloud Kitchen nudi izvrsne obroke vrhunske
                 kvalitete.
@@ -93,9 +93,9 @@ const HomeComponent = (props) => {
         <div className="container">
           <div className="row">
             <div className="col-lg-8 mx-auto">
-              <h2 className="text-white mb-4 font-weight-bold">
+              <h3 className="text-white mb-4 font-weight-bold">
                 Grupni meniji
-              </h2>
+              </h3>
               <p className="text-white-50">
                 Grupni jelovnici (meniji) za porodične ručkove i večere vikendom
               </p>
@@ -109,7 +109,9 @@ const HomeComponent = (props) => {
           </a>
         </div>
       </section>
-
+      <div className="contact-us">
+        <Email />
+      </div>
       {/* Projects */}
       <section className="projects-section bg-light" id="projects">
         <div className="container">
@@ -138,7 +140,7 @@ const HomeComponent = (props) => {
             <div className="col-lg-6">
               <img
                 className="img-fluid"
-                src="../assets/img/demo-image-01.jpg"
+                src="../assets/img/regular_pic.jpg"
                 alt=""
               />
             </div>
@@ -160,11 +162,7 @@ const HomeComponent = (props) => {
           {/* Project two row */}
           <div className="row justify-content-center no-gutters">
             <div className="col-lg-6">
-              <img
-                className="img-fluid"
-                src="../assets/img/demo-image-02.jpg"
-                alt=""
-              />
+              <img className="img-fluid" src="../assets/img/test.jpg" alt="" />
             </div>
             <div className="col-lg-6 order-lg-first">
               <div className="bg-black text-center h-100 project">
@@ -189,47 +187,35 @@ const HomeComponent = (props) => {
           <div className="row text-center text-md-left mt-3 pb-3">
             <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
               <h6 className="text-uppercase mb-4 font-weight-bold">
-                Company name
+                Cloud Kitchen
               </h6>
               <p>
-                Here you can use rows and columns to organize your footer
-                content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit.
+                Cloud Kitchen je web aplikacija za naručivanje i dostavu hrane.
+                Nudimo hranu vrhunskog kvaliteta, stoga Vas pozivamo da
+                isprobate nešto iz naše ponude.
               </p>
             </div>
             <hr className="w-100 clearfix d-md-none" />
-            <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-              <h6 className="text-uppercase mb-4 font-weight-bold">Products</h6>
-              <p>
-                <a href="/#">MDBootstrap</a>
-              </p>
-              <p>
-                <a href="/#">MDWordPress</a>
-              </p>
-              <p>
-                <a href="/#">BrandFlow</a>
-              </p>
-              <p>
-                <a href="/#">Bootstrap Angular</a>
-              </p>
-            </div>
 
             <hr className="w-100 clearfix d-md-none" />
             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
               <h6 className="text-uppercase mb-4 font-weight-bold">
-                Useful links
+                KORISNI LINKOVI
               </h6>
               <p>
-                <a href="/#">Your Account</a>
+                <a href="/login">Prijavi se</a>
               </p>
               <p>
-                <a href="/#">Become an Affiliate</a>
+                <a href="/register">Registruj se</a>
               </p>
               <p>
-                <a href="/#">Shipping Rates</a>
+                <a href="/order">Naruči hranu</a>
               </p>
               <p>
-                <a href="/#">Help</a>
+                <a href="/group-menu">Grupni meniji</a>
+              </p>
+              <p>
+                <a href="/">Početna</a>
               </p>
             </div>
             <hr className="w-100 clearfix d-md-none" />
@@ -255,7 +241,7 @@ const HomeComponent = (props) => {
           <div className="row d-flex align-items-center">
             <div className="col-md-7 col-lg-8">
               <p className="text-center text-md-left">
-                © 2020 Copyright: Ahmed Halač
+                © 2021 Copyright: Ahmed Halač
               </p>
             </div>
 

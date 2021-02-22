@@ -112,9 +112,8 @@ class RegisterComponent extends Component {
 
   onChangeAddress() {
     const place = this.autocomplete.getPlace();
-    console.log(place.formatted_address);
     this.setState({
-      address: place.formatted_address,
+      address: "",
     });
   }
 

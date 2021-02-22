@@ -29,6 +29,9 @@ const Cards = ({
         </Card.Header>
         <Card.Body>
           <Card.Text>
+            <i className="fas fa-utensils"></i> {typeId}
+          </Card.Text>
+          <Card.Text>
             <i className="fa fa-address-book-o" aria-hidden="true"></i>{" "}
             {address}
           </Card.Text>
@@ -38,9 +41,7 @@ const Cards = ({
           <Card.Text>
             <i className="fa fa-star" aria-hidden="true"></i> {stars}
           </Card.Text>
-          <Card.Text>
-            <i className="fas fa-utensils"></i> {typeId}
-          </Card.Text>
+
           <Card.Text>
             <i className="fas fa-route" aria-hidden="true"></i>{" "}
             {deliver_distance}km

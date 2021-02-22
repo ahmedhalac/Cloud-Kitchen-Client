@@ -85,7 +85,11 @@ class Order extends Component {
               {data.map((order, index) => {
                 return (
                   <div key={index} className="col-sm-4">
-                    <img className="order-img" src={order.image} />
+                    <img
+                      className="order-img"
+                      src={order.image}
+                      alt="pic from db"
+                    />
                     <h4 className="food-name">{order.food_name}</h4>
                     <p>{order.ingredients}</p>
                     <div className="price">

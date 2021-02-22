@@ -8474,7 +8474,7 @@ button.bg-black:focus {
 /*SPUŠTANJE i PODIZANJE NAVBARA*/
 
 .fixed-top {
-  position: fixed;
+  position: absolute;
   top: -20px;
   right: 0;
   left: 0;
@@ -8487,6 +8487,11 @@ button.bg-black:focus {
   bottom: 0;
   left: 0;
   z-index: 1030;
+}
+
+.fixed-top.scrolled {
+  background-color: #fff !important;
+  transition: background-color 200ms linear;
 }
 
 @supports ((position: -webkit-sticky) or (position: sticky)) {
@@ -11006,7 +11011,7 @@ a.text-black:focus {
 }
 
 .text-white-50 {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .text-hide {
@@ -11146,6 +11151,7 @@ body {
   background-color: black;
 }
 
+/*
 #mainNav .navbar-toggler {
   font-size: 80%;
   padding: 0.75rem;
@@ -11160,7 +11166,7 @@ body {
 
 #mainNav .navbar-toggler:focus {
   outline: none;
-}
+}*/
 
 #mainNav .navbar-nav .nav-item:hover {
   outline: none;
@@ -11209,7 +11215,7 @@ body {
   #mainNav .nav-link.order:hover {
     transition: none;
     color: black;
-    background-color: rgba(252, 162, 43);
+    background-color: rgba(255, 255, 255, 0.9);
     transition: 1s;
   }
 
@@ -11248,7 +11254,7 @@ body {
   #mainNav .nav-link.login:hover {
     transition: none;
     color: black;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     transition: 1s;
   }
 
