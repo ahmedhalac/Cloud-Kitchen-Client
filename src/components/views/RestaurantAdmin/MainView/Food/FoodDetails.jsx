@@ -259,14 +259,6 @@ class FoodDetails extends Component {
                         </Select>
                       </div>
 
-                      <div className="form-group w-75 mx-auto d-flex">
-                        <label>Akcije</label>
-                        <Input type="radio" name="type" checked="checked" />
-                        Da
-                        <Input type="radio" name="type" checked="checked" />
-                        Ne
-                      </div>
-
                       <div className="form-group w-75 mx-auto">
                         <label htmlFor="discount_end_time">
                           Vrijeme akcije do

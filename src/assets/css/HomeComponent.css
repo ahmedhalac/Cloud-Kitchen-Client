@@ -11347,7 +11347,7 @@ body {
   max-width: 30rem;
   font-size: 1.6rem;
   padding-top: 73px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 @media (min-width: 768px) {

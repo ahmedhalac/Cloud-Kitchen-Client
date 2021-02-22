@@ -4,7 +4,7 @@
 }
 
 .food-type {
-  background-color: rgb(180, 109, 109);
+  background-color: #d4d6d8;
   padding: 15px;
 }
 
@@ -34,12 +34,12 @@
 }
 
 .order-btn {
-  background-color: orange;
+  background-color: rgba(237, 137, 7);
   letter-spacing: 0.1px;
 }
 
 .order-btn:hover {
-  background-color: lightcoral;
+  background-color: rgb(196, 114, 8);
 }
 
 .order-img {

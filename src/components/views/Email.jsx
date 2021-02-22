@@ -32,8 +32,6 @@ class Email extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    //This templateId is created in EmailJS.com
-
     //This is a custom method from EmailJS that takes the information
     //from the form and sends the email with the information gathered
     //and formats the email based on the templateID provided.
@@ -72,7 +70,12 @@ class Email extends React.Component {
         <h3 className="text-center font-weight-bold">Kontaktirajte nas</h3>
         <br />
         <div style={{ fontSize: "1.2rem" }}>
-          <div className="form-group">
+          <div className="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fa fa-user-circle-o"></i>
+              </span>
+            </div>
             <input
               className="form-control"
               placeholder="Ime"
@@ -84,7 +87,12 @@ class Email extends React.Component {
             />
           </div>
 
-          <div className="form-group">
+          <div className="input-group mb-3 mt-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </div>
             <input
               className="form-control email-inputs"
               placeholder="Email"
@@ -103,7 +111,7 @@ class Email extends React.Component {
               onChange={this.messageChange}
               placeholder="Ovdje napišite poruku"
               required
-              className="email-text-area form-control"
+              className="email-text-area form-control mt-4"
               rows="10"
               cols="20"
             />
@@ -113,7 +121,7 @@ class Email extends React.Component {
         <input
           type="submit"
           value="Pošalji"
-          className="btn btn-primary mail-btn"
+          className="btn btn-primary mail-btn mb-5"
         />
       </form>
     );

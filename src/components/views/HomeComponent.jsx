@@ -8,6 +8,26 @@ import { faHamburger } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const HomeComponent = (props) => {
+  const loginLogout = () => {
+    if (props.user) {
+      return (
+        <a
+          className="nav-link login js-scroll-trigger mr-2"
+          href="/"
+          onClick={props.logOut}
+        >
+          Odjavi se
+        </a>
+      );
+    } else {
+      return (
+        <a className="nav-link login js-scroll-trigger mr-2" href="/login">
+          Prijavi se
+        </a>
+      );
+    }
+  };
+
   return (
     <div id="page-top">
       {/* Navigation */}
@@ -31,9 +51,6 @@ const HomeComponent = (props) => {
           </button>
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
-              {/*<li className="nav-item"><a className="nav-link js-scroll-trigger" href="#about">O nama</a></li>
-                        <li className="nav-item"><a className="nav-link js-scroll-trigger" href="#signup">Kontakt</a>
-                        </li>*/}
               <li className="nav-item d-flex">
                 <a
                   className="nav-link order js-scroll-trigger mr-2"
@@ -41,9 +58,7 @@ const HomeComponent = (props) => {
                 >
                   Naruči online
                 </a>
-                <a className="nav-link login js-scroll-trigger" href="/login">
-                  Prijavi se
-                </a>
+                {loginLogout()}
               </li>
             </ul>
           </div>
@@ -112,10 +127,10 @@ const HomeComponent = (props) => {
       <div className="contact-us">
         <Email />
       </div>
-      {/* Projects */}
+      {/* Projects 
       <section className="projects-section bg-light" id="projects">
         <div className="container">
-          {/* Featured Project Row */}
+         Featured Project Row 
           <div className="row align-items-center no-gutters mb-4 mb-lg-5">
             <div className="col-xl-8 col-lg-7">
               <img
@@ -135,7 +150,7 @@ const HomeComponent = (props) => {
               </div>
             </div>
           </div>
-          {/* Project one row */}
+          Project one row 
           <div className="row justify-content-center no-gutters mb-5 mb-lg-0">
             <div className="col-lg-6">
               <img
@@ -159,7 +174,7 @@ const HomeComponent = (props) => {
               </div>
             </div>
           </div>
-          {/* Project two row */}
+          {/* Project two row 
           <div className="row justify-content-center no-gutters">
             <div className="col-lg-6">
               <img className="img-fluid" src="../assets/img/test.jpg" alt="" />
@@ -181,7 +196,7 @@ const HomeComponent = (props) => {
             </div>
           </div>
         </div>
-      </section>
+      </section>*/}
       <footer className="page-footer font-small mdb-color pt-4">
         <div className="container text-center text-md-left">
           <div className="row text-center text-md-left mt-3 pb-3">

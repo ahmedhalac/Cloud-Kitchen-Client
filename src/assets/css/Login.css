@@ -87,14 +87,7 @@
   font-size: 15px;
 }
 
-/*
-.btn-primary.rl:hover {
-  background-image: linear-gradient(90deg, #90d5ec, #fc575e);
+.login-register:hover {
+  color: #fc575e;
+  text-decoration: none;
 }
-
-.btn-primary.rl:active,
-.btn-primary.rl:focus,
-.btn-primary.rl:disabled {
-  background-image: linear-gradient(90deg, #90d5ec, #fc575e);
-}
-*/

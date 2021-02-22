@@ -1,9 +1,25 @@
 import React from "react";
+import "../assets/css/NotFound.css";
 
 const NotFound = () => {
   return (
-    <div>
-      <h1>Page Not Found</h1>
+    <div className="container-404">
+      <div className="mainbox">
+        <div className="err">4</div>
+        <i className="far fa-question-circle fa-spin"></i>
+        <div className="err2">4</div>
+        <div className="msg">
+          Maybe this page moved? Got deleted? Is hiding out in quarantine? Never
+          existed in the first place?
+          <p>
+            Let's go{" "}
+            <a className="go-home" href="/">
+              home
+            </a>{" "}
+            and try from there.
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
