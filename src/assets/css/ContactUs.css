@@ -9,6 +9,30 @@
   width: 30%;
 }
 
+@media (max-width: 990px) {
+  .test-mailing {
+    margin: 0 auto;
+    padding-top: 20px;
+    width: 40%;
+  }
+}
+
+@media (max-width: 600px) {
+  .test-mailing {
+    margin: 0 auto;
+    padding-top: 20px;
+    width: 50%;
+  }
+}
+
+@media (max-width: 400px) {
+  .test-mailing {
+    margin: 0 auto;
+    padding-top: 20px;
+    width: 80%;
+  }
+}
+
 .mail-btn {
   background-color: rgba(0, 0, 0, 0.2);
   color: black;

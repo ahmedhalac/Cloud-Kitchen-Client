@@ -113,7 +113,7 @@ class RegisterComponent extends Component {
   onChangeAddress() {
     const place = this.autocomplete.getPlace();
     this.setState({
-      address: "",
+      address: place.formatted_address,
     });
   }
 
@@ -257,7 +257,10 @@ class RegisterComponent extends Component {
               </div>
             )}
             <p className="forgot-password text-right">
-              Već imaš kreiran račun? <a href="/login">Prijavi se</a>
+              Već imaš kreiran račun?{" "}
+              <a className="login-register" href="/login">
+                Prijavi se
+              </a>
             </p>
             <CheckButton
               style={{ display: "none" }}

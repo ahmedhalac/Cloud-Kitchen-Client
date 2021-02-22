@@ -58,7 +58,11 @@ class LoginComponent extends Component {
     if (this.checkBtn.context._errors.length === 0) {
       dispatch(login(this.state.email, this.state.password))
         .then(() => {
-          history.push(`/${user.roles}`);
+          if (user.roles == "customer") {
+            history.push(`/`);
+          } else {
+            history.push(`/${user.roles}`);
+          }
 
           window.location.reload();
         })
@@ -77,7 +81,11 @@ class LoginComponent extends Component {
   render() {
     const { user, isLoggedIn, message } = this.props;
     if (isLoggedIn) {
-      return <Redirect to={`/${user.roles}`} />;
+      if (user.roles == "customer") {
+        return <Redirect to={`/`} />;
+      } else {
+        return <Redirect to={`/${user.roles}`} />;
+      }
     }
     return (
       <div className="col-md-12 login-page">
@@ -139,10 +147,15 @@ class LoginComponent extends Component {
               </div>
             )}
             <p className="forgot-password text-right">
-              Nisi registrovan? <a href="/register">Registruj se</a>
+              Nisi registrovan?{" "}
+              <a className="login-register" href="/register">
+                Registruj se
+              </a>
             </p>
             <p className="text-right">
-              <a href="/">Nazad na početnu</a>
+              <a href="/" className="login-register">
+                Nazad na početnu
+              </a>
             </p>
             <CheckButton
               style={{ display: "none" }}

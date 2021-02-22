@@ -6,6 +6,12 @@ import Input from "react-validation/build/input";
 import Select from "react-validation/build/select";
 import CheckButton from "react-validation/build/button";
 import "../../assets/css/OrderDetails.css";
+import * as emailjs from "emailjs-com";
+import { init } from "emailjs-com";
+init("user_pU36AWJtkcqOOlMObzWE2");
+
+const templateId = "template_bo33kra";
+const serviceId = "service_up281mr";
 
 class OrderDetails extends React.Component {
   constructor(props) {
@@ -124,6 +130,7 @@ class OrderDetails extends React.Component {
           <td>{order.price}</td>
           <td>
             <button
+              className="button"
               onMouseOver={() => {
                 this.setState({
                   id: order.id,
@@ -131,7 +138,7 @@ class OrderDetails extends React.Component {
               }}
               onClick={this.deleteOrder}
             >
-              X
+              <span className="close">X</span>
             </button>
           </td>
         </tr>
@@ -143,13 +150,38 @@ class OrderDetails extends React.Component {
     const { message } = this.props;
     return (
       <div className="container-fluid">
+        <div className="back">
+          <a href="/order">
+            <button className="btn btn-primary back-btn">Nazad</button>
+          </a>
+        </div>
+        <div className="order-container">
+          <table className="table w-50 mt-5">
+            <thead>
+              <tr>
+                <th scope="col">Količina</th>
+                <th scope="col">Naziv jela</th>
+                <th scope="col">Cijena</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>{this.renderOrders()}</tbody>
+            <tfoot>
+              <tr>
+                <th scope="col">Ukupno</th>
+                <th scope="col"></th>
+                <td>{this.state.total_price} KM</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
         <button
           type="button"
           className="btn custom-add btn-primary"
           data-toggle="modal"
           data-target="#exampleModal"
         >
-          <i className="fal fa-user-plus fa-lg"></i>
+          <i className="fal fa-plus fa-lg mr-2"></i>Naruči
         </button>
 
         <div
@@ -309,26 +341,6 @@ class OrderDetails extends React.Component {
               </div>
             </div>
           </div>
-        </div>
-        <div className="order-container">
-          <table className="table w-50">
-            <thead>
-              <tr>
-                <th scope="col">Količina</th>
-                <th scope="col">Naziv jela</th>
-                <th scope="col">Cijena</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>{this.renderOrders()}</tbody>
-            <tfoot>
-              <tr>
-                <th scope="col">Ukupno</th>
-                <th scope="col"></th>
-                <td>{this.state.total_price} KM</td>
-              </tr>
-            </tfoot>
-          </table>
         </div>
       </div>
     );

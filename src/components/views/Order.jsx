@@ -196,7 +196,7 @@ class Order extends Component {
                                         Odustani
                                       </button>
                                       <button className="btn custom-success btn-success ml-4">
-                                        Naruči
+                                        Dodaj
                                       </button>
                                     </div>
                                   </div>

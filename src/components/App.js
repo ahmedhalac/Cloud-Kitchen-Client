@@ -55,7 +55,13 @@ class App extends Component {
     return (
       <Router history={history}>
         <Switch>
-          <Route exact path={"/"} component={HomeComponent} />
+          <Route
+            exact
+            path={"/"}
+            render={() => (
+              <HomeComponent logOut={this.logOut} user={this.props.user} />
+            )}
+          />
           <Route exact path="/login" component={LoginComponent} />
           <Route exact path="/register" component={RegisterComponent} />
           <Route exact path="/profile" component={ProfileComponent} />
