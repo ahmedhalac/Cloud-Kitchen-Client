@@ -7,6 +7,11 @@ import MainView from "../RestaurantAdmin/MainView/MainView";
 import Forbidden from "../../Forbidden";
 
 import logo from "../../../assets/img/logo.png";
+import restaurantIcon from "../../../assets/img/icons/restaurant_icon.svg";
+import homeIcon from "../../../assets/img/icons/home.svg";
+import deliverer from "../../../assets/img//icons/delivery-man.svg";
+import businessman from "../../../assets/img//icons/businessman.svg";
+import groupMenu from "../../../assets/img/icons/group_menu.svg";
 
 export default class RestaurantAdminComponent extends Component {
   constructor(props) {
@@ -20,12 +25,26 @@ export default class RestaurantAdminComponent extends Component {
 
   logoIcon = logo;
   menuItems = [
-    { name: "Dashboard", to: "/restaurant_admin", icon: "" },
-    { name: "Dostavljač", to: "/restaurant_admin/add-deliverer", icon: "" },
+    { name: "Dashboard", to: "/restaurant_admin", icon: homeIcon },
+    {
+      name: "Dostavljač",
+      to: "/restaurant_admin/add-deliverer",
+      icon: deliverer,
+    },
     {
       name: "Administracija artikala",
       to: "/restaurant_admin/food-details",
-      icon: "",
+      icon: businessman,
+    },
+    {
+      name: "Restoran",
+      to: "/restaurant_admin/restaurant",
+      icon: restaurantIcon,
+    },
+    {
+      name: "Grupni Meniji",
+      to: "/restaurant_admin/group-menu",
+      icon: groupMenu,
     },
   ];
   componentDidMount() {
@@ -55,10 +74,14 @@ export default class RestaurantAdminComponent extends Component {
     }
     return (
       <div className="admin">
-        <Sidebar menuItems={this.menuItems} logoIcon={this.logoIcon} />
+        <Sidebar
+          menuItems={this.menuItems}
+          logoIcon={this.logoIcon}
+          sidebarPic={this.sidebarPic}
+        />
         <div className="logout" onClick={this.props.logOut}>
           <a href="/login">
-            <i className="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+            <i className="fa fa-sign-out fa-2x"></i>
           </a>
         </div>
         <MainView />

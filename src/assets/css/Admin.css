@@ -1,7 +1,18 @@
 .admin {
-  background: #ecf0f1;
+  background: #f8f9fa;
   height: 100vh;
   display: flex;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.65) 75%,
+      rgba(0, 0, 0, 0.65) 100%,
+      #000000 100%
+    ),
+    url("https://images.unsplash.com/photo-1525367922492-f15fe7b709cb?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1868&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
 }
 
 .logout {
@@ -13,24 +24,31 @@
   border-radius: 20px;
 }
 
-.add-user-text {
+.user-text {
   padding-top: 50px;
   margin-left: 10px;
+  color: white;
 }
 
-.add-user-text h4 {
+.user-text h4 {
   padding-left: 30px;
   font-weight: 500;
 }
 
-.btn.custom-success {
-  background-color: #619e9a;
-}
-
-.btn.btn.custom-success:hover {
-  background-color: #578e8b;
-}
-
 .btn.custom-add {
   margin: 30px 40px;
+  background-color: rgba(237, 137, 7);
+}
+
+.btn.custom-add:hover {
+  margin: 30px 40px;
+  background-color: rgb(196, 114, 8);
+}
+
+.fa-sign-out {
+  color: white;
+}
+
+.fa-sign-out:hover {
+  color: rgb(207, 205, 205);
 }

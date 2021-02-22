@@ -1,46 +1,31 @@
-import React, { Component, Fragment } from "react";
-import { addFoodType } from "../../../../../actions/auth";
-import { connect } from "react-redux";
-import { getFoodType } from "../../../../../actions/auth";
+import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import FoodTypeCard from "./FoodTypeCard";
-import "../../../../../assets/css/Restaurant.css";
+import "../../../../../assets/css/Admin.css";
 
-const required = (value) => {
-  if (!value) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        Ovo polje je obavezno!
-      </div>
-    );
-  }
-};
+import { connect } from "react-redux";
+import { addMenuName } from "../../../../../actions/auth";
 
-class FoodType extends Component {
+class AddMenuName extends Component {
   constructor(props) {
     super(props);
     this.handleRegister = this.handleRegister.bind(this);
-    this.onChangeName = this.onChangeName.bind(this);
+    this.onChangeMenuName = this.onChangeMenuName.bind(this);
 
     this.state = {
-      name: "",
+      menu_name: "",
       successful: false,
     };
   }
 
-  componentDidMount() {
-    this.props.dispatch(getFoodType());
-  }
-
-  onChangeName(e) {
+  onChangeMenuName(e) {
     this.setState({
-      name: e.target.value,
+      menu_name: e.target.value,
     });
   }
 
-  handleRegister = (e) => {
+  handleRegister(e) {
     e.preventDefault();
     this.setState({
       successful: false,
@@ -50,8 +35,7 @@ class FoodType extends Component {
 
     if (this.checkBtn.context._errors.length === 0) {
       this.props
-        .dispatch(addFoodType(this.state.name))
-
+        .dispatch(addMenuName(this.state.menu_name))
         .then(() => {
           this.setState({
             successful: true,
@@ -63,23 +47,14 @@ class FoodType extends Component {
           });
         });
     }
-  };
-
-  renderFoodTypes() {
-    return this.props.foodTypes.map((type, index) => {
-      return (
-        <div className="card-items" key={index}>
-          <FoodTypeCard key={index} id={type.id} name={type.name} />
-        </div>
-      );
-    });
   }
+
   render() {
     const { message } = this.props;
     return (
-      <Fragment>
+      <>
         <div className="user-text">
-          <h4>CRUD za Tip Hrane</h4>
+          <h4>Kreiranje imena menija</h4>
         </div>
         <button
           type="button"
@@ -87,8 +62,7 @@ class FoodType extends Component {
           data-toggle="modal"
           data-target="#exampleModal"
         >
-          <i className="fal fa-plus fa-lg" aria-hidden="true"></i>
-          <span className="ml-1">Dodaj</span>
+          <i className="fal fa-user-plus fa-lg"></i>
         </button>
 
         <div
@@ -103,7 +77,7 @@ class FoodType extends Component {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">
-                  Tip Hrane
+                  Naziv menija
                 </h5>
 
                 <button
@@ -112,12 +86,7 @@ class FoodType extends Component {
                   data-dismiss="modal"
                   aria-label="Close"
                 >
-                  <span
-                    aria-hidden="true"
-                    onClick={() => window.location.reload(false)}
-                  >
-                    &times;
-                  </span>
+                  <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div className="modal-body">
@@ -131,17 +100,15 @@ class FoodType extends Component {
                   {!this.state.successful && (
                     <div>
                       <div className="form-group w-75 mx-auto">
-                        <label htmlFor="first_name">Ime Tipa Hrane</label>
                         <Input
+                          placeholder="Ime menija"
                           type="text"
                           className="form-control"
-                          name="name"
-                          value={this.state.name}
-                          onChange={this.onChangeName}
-                          validations={[required]}
+                          name="menu_name"
+                          value={this.state.menu_name}
+                          onChange={this.onChangeMenuName}
                         />
                       </div>
-
                       <div className="form-group w-75 mx-auto">
                         <button
                           type="button"
@@ -155,7 +122,7 @@ class FoodType extends Component {
                         </button>
                         <button className="btn custom-success btn-success ml-4">
                           <i
-                            className="fal fa-save fa-lg"
+                            className="fa fa-floppy-o fa-lg"
                             aria-hidden="true"
                           ></i>
                         </button>
@@ -189,18 +156,18 @@ class FoodType extends Component {
             </div>
           </div>
         </div>
-        <div className="card-container">{this.renderFoodTypes()}</div>
-      </Fragment>
+      </>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+function mapStateToProps(state) {
   const { message } = state.message;
+  const { user } = state.auth;
   return {
-    foodTypes: Object.values(state.restRed.foodTypes),
     message,
+    user,
   };
-};
+}
 
-export default connect(mapStateToProps)(FoodType);
+export default connect(mapStateToProps)(AddMenuName);

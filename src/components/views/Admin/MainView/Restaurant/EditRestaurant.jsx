@@ -27,6 +27,7 @@ class EditRestaurant extends React.Component {
     this.onChangeCity = this.onChangeCity.bind(this);
     this.onChangeStars = this.onChangeStars.bind(this);
     this.onChangeRestaurantType = this.onChangeRestaurantType.bind(this);
+    this.onChangeDeliverDistance = this.onChangeDeliverDistance.bind(this);
 
     this.state = {
       name: this.props.name,
@@ -34,6 +35,7 @@ class EditRestaurant extends React.Component {
       city: this.props.city,
       stars: this.props.stars,
       typeId: this.props.typeId,
+      deliver_distance: this.props.deliver_distance,
       successful: false,
     };
   }
@@ -71,6 +73,12 @@ class EditRestaurant extends React.Component {
     });
   }
 
+  onChangeDeliverDistance(e) {
+    this.setState({
+      deliver_distance: e.target.value,
+    });
+  }
+
   handleRegister = (e) => {
     e.preventDefault();
     this.setState({
@@ -88,7 +96,8 @@ class EditRestaurant extends React.Component {
             this.state.address,
             this.state.city,
             this.state.stars,
-            this.state.typeId
+            this.state.typeId,
+            this.state.deliver_distance
           )
         )
 
@@ -117,7 +126,7 @@ class EditRestaurant extends React.Component {
 
   render() {
     const { message } = this.props;
-
+    console.log(this.props);
     return (
       <div>
         <button
@@ -127,7 +136,7 @@ class EditRestaurant extends React.Component {
           data-target={`#id${this.props.id}`}
           style={{ marginTop: "2em" }}
         >
-          <i className="fa fa-pencil fa-lg" aria-hidden="true"></i>
+          <i className="fal fa-edit fa-lg" aria-hidden="true"></i>
         </button>
 
         <div
@@ -233,6 +242,18 @@ class EditRestaurant extends React.Component {
                       </div>
 
                       <div className="form-group w-75 mx-auto">
+                        <label htmlFor="email">Udaljenost dostave</label>
+                        <Input
+                          type="text"
+                          className="form-control"
+                          name="deliver_distance"
+                          value={this.props.deliver_distance}
+                          onChange={this.onChangeDeliverDistance}
+                          validations={[required]}
+                        />
+                      </div>
+
+                      <div className="form-group w-75 mx-auto">
                         <button
                           type="button"
                           className="btn custom btn-danger"
@@ -245,7 +266,7 @@ class EditRestaurant extends React.Component {
                         </button>
                         <button className="btn custom-success btn-success ml-4">
                           <i
-                            className="fa fa-floppy-o fa-lg"
+                            className="fal fa-save fa-lg"
                             aria-hidden="true"
                           ></i>
                         </button>

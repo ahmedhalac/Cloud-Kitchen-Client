@@ -70,7 +70,7 @@ class EditFoodType extends React.Component {
           data-target={`#id${this.props.id}`}
           style={{ marginTop: "2em", float: "left", marginLeft: "2em" }}
         >
-          <i className="fa fa-pencil fa-lg" aria-hidden="true"></i>
+          <i className="fal fa-edit fa-lg" aria-hidden="true"></i>
         </button>
 
         <div

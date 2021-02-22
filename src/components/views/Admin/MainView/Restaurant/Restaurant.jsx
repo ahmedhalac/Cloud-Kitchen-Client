@@ -9,9 +9,11 @@ import "../../../../../assets/css/Restaurant.css";
 
 import Cards from "../../../../Cards";
 
-import { addRestaurant } from "../../../../../actions/auth";
-import { getRestaurants } from "../../../../../actions/auth";
-import { getRestaurantTypes } from "../../../../../actions/auth";
+import {
+  addRestaurant,
+  getRestaurants,
+  getRestaurantTypes,
+} from "../../../../../actions/auth";
 
 const required = (value) => {
   if (!value) {
@@ -131,7 +133,8 @@ class Restaurant extends Component {
             address={type.address}
             city={type.city}
             stars={type.stars}
-            typeId={type.typeId}
+            typeId={type.rt_name}
+            deliver_distance={type.deliver_distance}
           />
         </div>
       );
@@ -140,9 +143,10 @@ class Restaurant extends Component {
 
   render() {
     const { message } = this.props;
+
     return (
       <Fragment>
-        <div className="add-user-text">
+        <div className="user-text">
           <h4>Dodavanje, update i arhiviranje restorana</h4>
         </div>
         <button
@@ -151,7 +155,7 @@ class Restaurant extends Component {
           data-toggle="modal"
           data-target="#exampleModal"
         >
-          <i className="fa fa-plus-circle fa-lg" aria-hidden="true"></i>
+          <i className="fal fa-plus fa-lg" aria-hidden="true"></i>
           <span className="ml-1">Dodaj</span>
         </button>
 
@@ -270,7 +274,7 @@ class Restaurant extends Component {
                         </button>
                         <button className="btn custom-success btn-success ml-4">
                           <i
-                            className="fa fa-floppy-o fa-lg"
+                            className="fal fa-save fa-lg"
                             aria-hidden="true"
                           ></i>
                         </button>

@@ -14,7 +14,9 @@
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
+    
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -29,7 +31,10 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-  
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2cWsOkA0f5IBa0N1MPZOuqSiWntRP0FM&libraries=places&callback">
+    
+</script>
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -42,4 +47,5 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+
 </html>

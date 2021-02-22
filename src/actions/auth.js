@@ -17,6 +17,16 @@ import {
   DELETE_RESTAURANT_TYPE,
   DELETE_FOOD_TYPE,
   ADD_FOOD_DETAILS,
+  ADD_MENU_NAME,
+  FETCH_FOOD,
+  FETCH_MENU_NAMES,
+  ADD_GROUP_MENU,
+  FETCH_GROUP_MENUS,
+  FETCH_ORDER_DATA,
+  ADD_ORDER,
+  FETCH_ORDERS,
+  DELETE_ORDER,
+  ADD_ORDER_DETAILS,
 } from "./types";
 
 import AuthService from "../services/authService";
@@ -194,16 +204,23 @@ export const getRestaurants = () => async (dispatch) => {
 };
 
 //EDIT Restaurant
-export const editRestaurant = (id, name, address, city, stars, typeId) => (
-  dispatch
-) => {
+export const editRestaurant = (
+  id,
+  name,
+  address,
+  city,
+  stars,
+  typeId,
+  deliver_distance
+) => (dispatch) => {
   return AuthService.editRestaurant(
     id,
     name,
     address,
     city,
     stars,
-    typeId
+    typeId,
+    deliver_distance
   ).then(
     (response) => {
       dispatch({ type: EDIT_RESTAURANT, payload: response.data });
@@ -301,6 +318,12 @@ export const addFoodType = (name) => (dispatch) => {
   );
 };
 
+//GET Food
+export const getFood = () => async (dispatch) => {
+  const response = await AuthService.getFood();
+  dispatch({ type: FETCH_FOOD, payload: response.data });
+};
+
 //GET Food Type
 export const getFoodType = () => async (dispatch) => {
   const response = await AuthService.getFoodType();
@@ -373,6 +396,186 @@ export const addFoodDetails = (
   ).then(
     (response) => {
       dispatch({ type: ADD_FOOD_DETAILS, payload: response.data });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: response.data.message,
+      });
+
+      return Promise.resolve();
+    },
+    (error) => {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      dispatch({
+        type: REGISTER_FAIL,
+      });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: message,
+      });
+      return Promise.reject();
+    }
+  );
+};
+
+//ADD Menu name
+export const addMenuName = (menu_name) => (dispatch) => {
+  return AuthService.addMenuName(menu_name).then(
+    (response) => {
+      dispatch({ type: ADD_MENU_NAME, payload: response.data });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: response.data.message,
+      });
+
+      return Promise.resolve();
+    },
+    (error) => {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      dispatch({
+        type: REGISTER_FAIL,
+      });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: message,
+      });
+      return Promise.reject();
+    }
+  );
+};
+
+//GET Menu name
+export const getMenuName = () => async (dispatch) => {
+  const response = await AuthService.getMenuName();
+  dispatch({ type: FETCH_MENU_NAMES, payload: response.data });
+};
+
+//EDIT Restaurant
+export const addGroupMenu = (restaurantId, menuNameId, foodId) => (
+  dispatch
+) => {
+  return AuthService.addGroupMenu(restaurantId, menuNameId, foodId).then(
+    (response) => {
+      dispatch({ type: ADD_GROUP_MENU, payload: response.data });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: response.data.message,
+      });
+
+      return Promise.resolve();
+    },
+    (error) => {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      dispatch({
+        type: REGISTER_FAIL,
+      });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: message,
+      });
+      return Promise.reject();
+    }
+  );
+};
+
+//GET group menus
+export const getGroupMenus = () => async (dispatch) => {
+  const response = await AuthService.getGroupMenus();
+  dispatch({ type: FETCH_GROUP_MENUS, payload: response.data });
+};
+
+//GET Order Data
+export const getOrderData = () => async (dispatch) => {
+  const response = await AuthService.getOrderData();
+  dispatch({ type: FETCH_ORDER_DATA, payload: response.data });
+};
+
+//ADD Order
+export const addOrder = (selected_food, quantity, price) => (dispatch) => {
+  return AuthService.addOrder(selected_food, quantity, price).then(
+    (response) => {
+      dispatch({ type: ADD_ORDER, payload: response.data });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: response.data.message,
+      });
+
+      return Promise.resolve();
+    },
+    (error) => {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      dispatch({
+        type: REGISTER_FAIL,
+      });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: message,
+      });
+      return Promise.reject();
+    }
+  );
+};
+
+//GET orders
+export const getOrders = () => async (dispatch) => {
+  const response = await AuthService.getOrders();
+  dispatch({ type: FETCH_ORDERS, payload: response.data });
+};
+
+//DELETE order
+export const deleteOrder = (id) => async (dispatch) => {
+  const response = await AuthService.deleteOrder(id);
+  dispatch({ type: DELETE_ORDER, payload: response.data });
+};
+
+//ADD Order Details
+export const addOrderDetails = (
+  first_name,
+  last_name,
+  email,
+  phone,
+  payment_type,
+  order_time,
+  note
+) => (dispatch) => {
+  return AuthService.addOrderDetails(
+    first_name,
+    last_name,
+    email,
+    phone,
+    payment_type,
+    order_time,
+    note
+  ).then(
+    (response) => {
+      dispatch({ type: ADD_ORDER_DETAILS, payload: response.data });
 
       dispatch({
         type: SET_MESSAGE,

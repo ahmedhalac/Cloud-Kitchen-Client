@@ -33,6 +33,7 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
+  margin: 0;
 }
 
 *,
@@ -8473,7 +8474,7 @@ button.bg-black:focus {
 /*SPUŠTANJE i PODIZANJE NAVBARA*/
 
 .fixed-top {
-  position: fixed;
+  position: absolute;
   top: -20px;
   right: 0;
   left: 0;
@@ -8486,6 +8487,11 @@ button.bg-black:focus {
   bottom: 0;
   left: 0;
   z-index: 1030;
+}
+
+.fixed-top.scrolled {
+  background-color: #fff !important;
+  transition: background-color 200ms linear;
 }
 
 @supports ((position: -webkit-sticky) or (position: sticky)) {
@@ -11005,7 +11011,7 @@ a.text-black:focus {
 }
 
 .text-white-50 {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .text-hide {
@@ -11145,6 +11151,7 @@ body {
   background-color: black;
 }
 
+/*
 #mainNav .navbar-toggler {
   font-size: 80%;
   padding: 0.75rem;
@@ -11159,7 +11166,7 @@ body {
 
 #mainNav .navbar-toggler:focus {
   outline: none;
-}
+}*/
 
 #mainNav .navbar-nav .nav-item:hover {
   outline: none;
@@ -11193,6 +11200,44 @@ body {
     padding: 2rem 1.5rem;
     color: rgba(255, 255, 255, 0.6);
   }
+  /*ORDER  BUTTON*/
+  #mainNav .nav-link.order {
+    transition: none;
+    margin-top: 1.5rem;
+    padding: 0.3rem 1.6rem;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(237, 137, 7);
+    border: 0.5px solid rgba(255, 255, 255, 0.9);
+    border-radius: 7px;
+    letter-spacing: 0.2px;
+  }
+
+  #mainNav .nav-link.order:hover {
+    transition: none;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: 1s;
+  }
+
+  /*GROUP MENU BUTTON*/
+
+  .group-menu-btn {
+    transition: none;
+    margin-top: 1.5rem;
+    padding: 0.3rem 1.6rem;
+    border: 1px solid white;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 7px;
+    letter-spacing: 0.1px;
+  }
+
+  .group-menu-btn:hover {
+    transition: none;
+    color: black;
+    background-color: white;
+    transition: 1s;
+  }
 
   /*LOGIN BUTTON*/
 
@@ -11209,7 +11254,7 @@ body {
   #mainNav .nav-link.login:hover {
     transition: none;
     color: black;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     transition: 1s;
   }
 
@@ -11299,16 +11344,16 @@ body {
 */
 
 .masthead h2 {
-  max-width: 20rem;
-  font-size: 1rem;
+  max-width: 30rem;
+  font-size: 1.6rem;
   padding-top: 73px;
   letter-spacing: 2px;
 }
 
 @media (min-width: 768px) {
-  .masthead h1 {
-    font-size: 4rem;
-    line-height: 4rem;
+  .masthead h2 {
+    font-size: 2rem;
+    max-width: 35rem;
   }
 }
 
@@ -11326,8 +11371,8 @@ body {
         }*/
 
   .masthead h2 {
-    max-width: 30rem;
-    font-size: 1.65rem;
+    max-width: 40rem;
+    font-size: 2.3rem;
   }
 }
 
@@ -11343,14 +11388,37 @@ body {
 }
 
 .about-section p {
-  margin-bottom: 10rem;
+  margin-bottom: 8rem;
+  font-size: 1.1em;
 }
 
 .regular_img {
   width: 100%;
   height: 50vh;
-  background: url(../../assets/img/regular_pic.jpg) no-repeat center fixed;
+  /*background: url(../../assets/img/regular_pic.jpg) no-repeat center fixed;
+  background-size: cover;*/
+}
+
+.group-menu {
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 0, 0, 0.1) 0%,
+      rgba(255, 0, 0, 0.1) 75%,
+      #000000 100%
+    ),
+    url("../../assets/img/regular_pic.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
   background-size: cover;
+
+  width: 100%;
+  height: 70vh;
+}
+
+.group-menu p {
+  color: white;
+  font-size: 1.1em;
 }
 
 .projects-section {

@@ -38,7 +38,7 @@ const vpassword = (value) => {
   }
 };
 
-class AddUser extends Component {
+class AddDeliverer extends Component {
   constructor(props) {
     super(props);
     this.handleRegister = this.handleRegister.bind(this);
@@ -54,7 +54,7 @@ class AddUser extends Component {
       email: "",
       address: "",
       password: "",
-      role: "restaurant_admin",
+      role: "deliverer",
       successful: false,
     };
   }
@@ -127,7 +127,7 @@ class AddUser extends Component {
     return (
       <Fragment>
         <div className="user-text">
-          <h4>Kreiranje korisnika za administraciju restorana</h4>
+          <h4>Kreiranje dostavljača</h4>
         </div>
         <button
           type="button"
@@ -150,7 +150,7 @@ class AddUser extends Component {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">
-                  Administrator Restorana
+                  Dostavljač
                 </h5>
 
                 <button
@@ -173,11 +173,11 @@ class AddUser extends Component {
                   {!this.state.successful && (
                     <div>
                       <div className="form-group w-75 mx-auto">
+                        <label htmlFor="first_name">Ime</label>
                         <Input
                           type="text"
                           className="form-control"
                           name="first_name"
-                          placeholder="Ime"
                           value={this.state.first_name}
                           onChange={this.onChangeFirstName}
                           validations={[required]}
@@ -185,11 +185,11 @@ class AddUser extends Component {
                       </div>
 
                       <div className="form-group w-75 mx-auto">
+                        <label htmlFor="last_name">Prezime</label>
                         <Input
                           type="text"
                           className="form-control"
                           name="last_name"
-                          placeholder="Prezime"
                           value={this.state.last_name}
                           onChange={this.onChangeLastName}
                           validations={[required]}
@@ -197,10 +197,10 @@ class AddUser extends Component {
                       </div>
 
                       <div className="form-group w-75 mx-auto">
+                        <label htmlFor="email">Email</label>
                         <Input
                           type="text"
                           className="form-control"
-                          placeholder="Email"
                           name="email"
                           value={this.state.email}
                           onChange={this.onChangeEmail}
@@ -209,11 +209,11 @@ class AddUser extends Component {
                       </div>
 
                       <div className="form-group w-75 mx-auto">
+                        <label htmlFor="address">Adresa</label>
                         <Input
                           type="text"
                           className="form-control"
                           name="address"
-                          placeholder="Adresa"
                           value={this.state.address}
                           onChange={this.onChangeAddress}
                           validations={[required]}
@@ -221,9 +221,9 @@ class AddUser extends Component {
                       </div>
 
                       <div className="form-group w-75 mx-auto">
+                        <label htmlFor="password">Password</label>
                         <Input
                           autoComplete="new-password"
-                          placeholder="Lozinka"
                           type="password"
                           className="form-control"
                           name="password"
@@ -246,7 +246,7 @@ class AddUser extends Component {
                         </button>
                         <button className="btn custom-success btn-success ml-4">
                           <i
-                            className="fal fa-save fa-lg"
+                            className="fa fa-floppy-o fa-lg"
                             aria-hidden="true"
                           ></i>
                         </button>
@@ -294,4 +294,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(AddUser);
+export default connect(mapStateToProps)(AddDeliverer);

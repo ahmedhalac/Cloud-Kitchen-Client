@@ -1,0 +1,9 @@
+.order-container {
+  height: 50%;
+  width: 100%;
+}
+
+.order-item {
+  padding: 20px;
+  border: 1px solid black;
+}

@@ -70,7 +70,7 @@ class EditRestaurantType extends React.Component {
           data-target={`#id${this.props.id}`}
           style={{ marginTop: "2em", float: "left", marginLeft: "2em" }}
         >
-          <i className="fa fa-pencil fa-lg" aria-hidden="true"></i>
+          <i className="fal fa-edit fa-lg" aria-hidden="true"></i>
         </button>
 
         <div
@@ -137,7 +137,7 @@ class EditRestaurantType extends React.Component {
                         </button>
                         <button className="btn custom-success btn-success ml-4">
                           <i
-                            className="fa fa-floppy-o fa-lg"
+                            className="fal fa-save fa-lg"
                             aria-hidden="true"
                           ></i>
                         </button>

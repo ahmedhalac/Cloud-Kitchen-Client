@@ -151,7 +151,7 @@ class FoodDetails extends Component {
     const { message } = this.props;
     return (
       <>
-        <div className="add-user-text">
+        <div className="user-text">
           <h4>Administracija artikala</h4>
         </div>
         <button
@@ -160,7 +160,7 @@ class FoodDetails extends Component {
           data-toggle="modal"
           data-target="#exampleModal"
         >
-          <i className="fa fa-user-plus fa-lg"></i>
+          <i className="fal fa-user-plus fa-lg"></i>
         </button>
 
         <div
@@ -184,7 +184,12 @@ class FoodDetails extends Component {
                   data-dismiss="modal"
                   aria-label="Close"
                 >
-                  <span aria-hidden="true">&times;</span>
+                  <span
+                    aria-hidden="true"
+                    onClick={() => window.location.reload(false)}
+                  >
+                    &times;
+                  </span>
                 </button>
               </div>
               <div className="modal-body">
@@ -302,7 +307,7 @@ class FoodDetails extends Component {
                         </button>
                         <button className="btn custom-success btn-success ml-4">
                           <i
-                            className="fa fa-floppy-o fa-lg"
+                            className="fal fa-save fa-lg"
                             aria-hidden="true"
                           ></i>
                         </button>

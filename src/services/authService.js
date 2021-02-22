@@ -61,23 +61,24 @@ class AuthService {
     });
   }
 
-  getRestaurants(name, address, city, stars, typeId) {
+  getRestaurants(name, address, city, stars, rt_name) {
     return axios.get(API_URL + "get-restaurants", {
       name,
       address,
       city,
       stars,
-      typeId,
+      rt_name,
     });
   }
 
-  editRestaurant(id, name, address, city, stars, typeId) {
+  editRestaurant(id, name, address, city, stars, typeId, deliver_distance) {
     return axios.put(API_URL + `edit-restaurant/${id}`, {
       name,
       address,
       city,
       stars,
       typeId,
+      deliver_distance,
     });
   }
 
@@ -113,6 +114,12 @@ class AuthService {
     });
   }
 
+  getFood(name) {
+    return axios.get(API_URL + "get-food", {
+      name,
+    });
+  }
+
   getFoodType(name) {
     return axios.get(API_URL + "get-food-type", {
       name,
@@ -131,6 +138,86 @@ class AuthService {
 
   deleteFoodType(id) {
     return axios.delete(API_URL + `delete-food-type/${id}`);
+  }
+
+  addMenuName(menu_name) {
+    return axios.post(API_URL + "add-menu-name", {
+      menu_name,
+    });
+  }
+
+  getMenuName(menu_name) {
+    return axios.get(API_URL + "get-menu-name", {
+      menu_name,
+    });
+  }
+
+  addGroupMenu(restaurantId, menuNameId, foodId) {
+    return axios.post(API_URL + "add-group-menu", {
+      restaurantId,
+      menuNameId,
+      foodId,
+    });
+  }
+
+  getGroupMenus(res_name, menu_name, food_name, price) {
+    return axios.get(API_URL + "get-group-menus", {
+      res_name,
+      menu_name,
+      food_name,
+      price,
+    });
+  }
+
+  getOrderData(food_type, food_name, ingredients, image, id) {
+    return axios.get(API_URL + "get-order-data", {
+      food_type,
+      food_name,
+      ingredients,
+      image,
+      id,
+    });
+  }
+
+  addOrder(selected_food, quantity, price) {
+    return axios.post(API_URL + "add-order", {
+      selected_food,
+      quantity,
+      price,
+    });
+  }
+
+  getOrders(id, selected_food, quantity, price) {
+    return axios.get(API_URL + "get-orders", {
+      id,
+      selected_food,
+      quantity,
+      price,
+    });
+  }
+
+  deleteOrder(id) {
+    return axios.delete(API_URL + `delete-order/${id}`);
+  }
+
+  addOrderDetails(
+    first_name,
+    last_name,
+    email,
+    phone,
+    payment_type,
+    order_time,
+    note
+  ) {
+    return axios.post(API_URL + "add-order-details", {
+      first_name,
+      last_name,
+      email,
+      phone,
+      payment_type,
+      order_time,
+      note,
+    });
   }
 }
 

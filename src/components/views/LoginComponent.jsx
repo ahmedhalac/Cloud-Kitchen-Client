@@ -1,4 +1,4 @@
-import "../../assets/css/LoginRegister.css";
+import "../../assets/css/Login.css";
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 
@@ -13,7 +13,7 @@ const required = (value) => {
   if (!value) {
     return (
       <div className="alert alert-danger" role="alert">
-        This field is required!
+        Ovo polje je obavezno!
       </div>
     );
   }
@@ -80,12 +80,11 @@ class LoginComponent extends Component {
       return <Redirect to={`/${user.roles}`} />;
     }
     return (
-      <div className="col-md-12">
+      <div className="col-md-12 login-page">
         <div className="card card-container">
           <i
-            className="fa fa-user profile-img-card fa-5x"
+            className="fal fa-user profile-img-card fa-4x"
             aria-hidden="true"
-            style={{ color: "#4d4d4d" }}
           ></i>
 
           <Form
@@ -95,24 +94,24 @@ class LoginComponent extends Component {
               this.form = c;
             }}
           >
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
+            <div className="input-container">
               <Input
                 type="text"
-                className="form-control"
                 name="email"
+                placeholder="Email"
+                className="input"
                 value={this.state.email}
                 onChange={this.onChangeEmail}
                 validations={[required]}
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="password">Lozinka</label>
+            <div className="input-container">
               <Input
                 autoComplete="new-password"
                 type="password"
-                className="form-control"
+                className="input"
+                placeholder="Lozinka"
                 name="password"
                 value={this.state.password}
                 onChange={this.onChangePassword}

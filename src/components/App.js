@@ -13,6 +13,9 @@ import BoardCustomer from "./views/CustomerComponent";
 import RestaurantAdmin from "./views/RestaurantAdmin/RestaurantAdminComponent";
 import Admin from "./views/Admin/Admin";
 import BoardDeliverer from "./views/DelivererComponent";
+import GroupMenu from "./views/GroupMenu";
+import Order from "./views/Order";
+import OrderDetails from "./views/OrderDetails";
 
 import { logout } from "../actions/auth";
 import { clearMessage } from "../actions/message";
@@ -56,6 +59,7 @@ class App extends Component {
           <Route exact path="/login" component={LoginComponent} />
           <Route exact path="/register" component={RegisterComponent} />
           <Route exact path="/profile" component={ProfileComponent} />
+          <Route exact path="/group-menu" component={GroupMenu} />
           <Route
             exact
             path="/user"
@@ -67,6 +71,8 @@ class App extends Component {
             render={() => <RestaurantAdmin logOut={this.logOut} />}
           />
           <Route exact path="/deliverer" component={BoardDeliverer} />
+          <Route exact path="/order" component={Order} />
+          <Route exact path="/order-details" component={OrderDetails} />
           <Route component={NotFound} />
         </Switch>
       </Router>

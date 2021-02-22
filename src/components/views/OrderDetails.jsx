@@ -1,62 +1,40 @@
-import React, { Fragment, Component } from "react";
+import React from "react";
+import { connect } from "react-redux";
+import { getOrders, deleteOrder, addOrderDetails } from "../../actions/auth";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
+import Select from "react-validation/build/select";
 import CheckButton from "react-validation/build/button";
-import { isEmail } from "validator";
-import "../../../../../assets/css/Admin.css";
+import "../../assets/css/OrderDetails.css";
 
-import { connect } from "react-redux";
-import { register } from "../../../../../actions/auth";
-
-const required = (value) => {
-  if (!value) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        Ovo polje je obavezno!
-      </div>
-    );
-  }
-};
-
-const email = (value) => {
-  if (!isEmail(value)) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        Email nije validan.
-      </div>
-    );
-  }
-};
-
-const vpassword = (value) => {
-  if (value.length < 6 || value.length > 40) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        Lozinka mora biti veća od 6 znakova.
-      </div>
-    );
-  }
-};
-
-class AddDeliverer extends Component {
+class OrderDetails extends React.Component {
   constructor(props) {
     super(props);
     this.handleRegister = this.handleRegister.bind(this);
+    this.deleteOrder = this.deleteOrder.bind(this);
     this.onChangeFirstName = this.onChangeFirstName.bind(this);
     this.onChangeLastName = this.onChangeLastName.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangeAddress = this.onChangeAddress.bind(this);
-    this.onChangePassword = this.onChangePassword.bind(this);
+    this.onChangePhone = this.onChangePhone.bind(this);
+    this.onChangePaymentType = this.onChangePaymentType.bind(this);
+    this.onChangeOrderTime = this.onChangeOrderTime.bind(this);
+    this.onChangeNote = this.onChangeNote.bind(this);
 
     this.state = {
       first_name: "",
       last_name: "",
       email: "",
-      address: "",
-      password: "",
-      role: "deliverer",
+      phone: "",
+      payment_type: "Gotovina",
+      order_time: "",
+      note: "",
+      total_price: "",
+      id: "",
       successful: false,
     };
+  }
+  componentDidMount() {
+    this.props.dispatch(getOrders());
   }
 
   onChangeFirstName(e) {
@@ -64,30 +42,42 @@ class AddDeliverer extends Component {
       first_name: e.target.value,
     });
   }
-
   onChangeLastName(e) {
     this.setState({
       last_name: e.target.value,
     });
   }
-
   onChangeEmail(e) {
     this.setState({
       email: e.target.value,
     });
   }
-
-  onChangeAddress(e) {
+  onChangePhone(e) {
     this.setState({
-      address: e.target.value,
+      phone: e.target.value,
+    });
+  }
+  onChangePaymentType(e) {
+    this.setState({
+      payment_type: e.target.value,
+    });
+  }
+  onChangeOrderTime(e) {
+    this.setState({
+      order_time: e.target.value,
+    });
+  }
+  onChangeNote(e) {
+    this.setState({
+      note: e.target.value,
     });
   }
 
-  onChangePassword(e) {
-    this.setState({
-      password: e.target.value,
-    });
-  }
+  deleteOrder = () => {
+    this.props.dispatch(deleteOrder(this.state.id));
+    console.log(this.state.id);
+    window.location.reload(false);
+  };
 
   handleRegister(e) {
     e.preventDefault();
@@ -100,13 +90,14 @@ class AddDeliverer extends Component {
     if (this.checkBtn.context._errors.length === 0) {
       this.props
         .dispatch(
-          register(
+          addOrderDetails(
             this.state.first_name,
             this.state.last_name,
             this.state.email,
-            this.state.address,
-            this.state.password,
-            this.state.role
+            this.state.phone,
+            this.state.payment_type,
+            this.state.order_time,
+            this.state.note
           )
         )
         .then(() => {
@@ -122,20 +113,43 @@ class AddDeliverer extends Component {
     }
   }
 
+  renderOrders() {
+    this.state.total_price = 0;
+    return this.props.orders.map((order, index) => {
+      this.state.total_price += parseFloat(order.price);
+      return (
+        <tr key={index}>
+          <td>{order.quantity}</td>
+          <td>{order.selected_food}</td>
+          <td>{order.price}</td>
+          <td>
+            <button
+              onMouseOver={() => {
+                this.setState({
+                  id: order.id,
+                });
+              }}
+              onClick={this.deleteOrder}
+            >
+              X
+            </button>
+          </td>
+        </tr>
+      );
+    });
+  }
+
   render() {
     const { message } = this.props;
     return (
-      <Fragment>
-        <div className="add-user-text">
-          <h4>Kreiranje dostavljača</h4>
-        </div>
+      <div className="container-fluid">
         <button
           type="button"
           className="btn custom-add btn-primary"
           data-toggle="modal"
           data-target="#exampleModal"
         >
-          <i className="fa fa-user-plus fa-lg"></i>
+          <i className="fal fa-user-plus fa-lg"></i>
         </button>
 
         <div
@@ -150,7 +164,7 @@ class AddDeliverer extends Component {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">
-                  Dostavljač
+                  Narudžba detalji
                 </h5>
 
                 <button
@@ -159,7 +173,12 @@ class AddDeliverer extends Component {
                   data-dismiss="modal"
                   aria-label="Close"
                 >
-                  <span aria-hidden="true">&times;</span>
+                  <span
+                    aria-hidden="true"
+                    onClick={() => window.location.reload(false)}
+                  >
+                    &times;
+                  </span>
                 </button>
               </div>
               <div className="modal-body">
@@ -173,66 +192,77 @@ class AddDeliverer extends Component {
                   {!this.state.successful && (
                     <div>
                       <div className="form-group w-75 mx-auto">
-                        <label htmlFor="first_name">Ime</label>
+                        <label htmlFor="name">Ime</label>
                         <Input
                           type="text"
                           className="form-control"
                           name="first_name"
                           value={this.state.first_name}
                           onChange={this.onChangeFirstName}
-                          validations={[required]}
                         />
                       </div>
-
                       <div className="form-group w-75 mx-auto">
-                        <label htmlFor="last_name">Prezime</label>
+                        <label htmlFor="name">Prezime</label>
                         <Input
                           type="text"
                           className="form-control"
                           name="last_name"
                           value={this.state.last_name}
                           onChange={this.onChangeLastName}
-                          validations={[required]}
                         />
                       </div>
-
                       <div className="form-group w-75 mx-auto">
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="ingredients">Email</label>
                         <Input
-                          type="text"
+                          type="email"
                           className="form-control"
                           name="email"
                           value={this.state.email}
                           onChange={this.onChangeEmail}
-                          validations={[required, email]}
                         />
                       </div>
-
                       <div className="form-group w-75 mx-auto">
-                        <label htmlFor="address">Adresa</label>
+                        <label htmlFor="ingredients">Telefon</label>
                         <Input
                           type="text"
                           className="form-control"
-                          name="address"
-                          value={this.state.address}
-                          onChange={this.onChangeAddress}
-                          validations={[required]}
+                          name="phone"
+                          value={this.state.phone}
+                          onChange={this.onChangePhone}
                         />
                       </div>
-
                       <div className="form-group w-75 mx-auto">
-                        <label htmlFor="password">Password</label>
-                        <Input
-                          autoComplete="new-password"
-                          type="password"
+                        <label htmlFor="address">Način plaćanja</label>
+                        <Select
                           className="form-control"
-                          name="password"
-                          value={this.state.password}
-                          onChange={this.onChangePassword}
-                          validations={[required, vpassword]}
+                          name="payment_type"
+                          value={this.state.payment_type}
+                          onChange={this.onChangePaymentType}
+                        >
+                          <option value="Gotovina">Gotovina</option>
+                          <option value="Kartica">Kartica</option>
+                        </Select>
+                      </div>
+                      <div className="form-group w-75 mx-auto">
+                        <label htmlFor="ingredients">Vrijeme dostave</label>
+                        <Input
+                          type="time"
+                          className="form-control"
+                          name="order_time"
+                          value={this.state.order_time}
+                          onChange={this.onChangeOrderTime}
                         />
                       </div>
-
+                      <div className="form-group w-75 mx-auto">
+                        <label htmlFor="ingredients">Napomena</label>
+                        <Input
+                          type="text"
+                          className="form-control"
+                          name="note"
+                          value={this.state.note}
+                          onChange={this.onChangeNote}
+                        />
+                      </div>
                       <div className="form-group w-75 mx-auto">
                         <button
                           type="button"
@@ -246,7 +276,7 @@ class AddDeliverer extends Component {
                         </button>
                         <button className="btn custom-success btn-success ml-4">
                           <i
-                            className="fa fa-floppy-o fa-lg"
+                            className="fal fa-save fa-lg"
                             aria-hidden="true"
                           ></i>
                         </button>
@@ -280,18 +310,35 @@ class AddDeliverer extends Component {
             </div>
           </div>
         </div>
-      </Fragment>
+        <div className="order-container">
+          <table className="table w-50">
+            <thead>
+              <tr>
+                <th scope="col">Količina</th>
+                <th scope="col">Naziv jela</th>
+                <th scope="col">Cijena</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>{this.renderOrders()}</tbody>
+            <tfoot>
+              <tr>
+                <th scope="col">Ukupno</th>
+                <th scope="col"></th>
+                <td>{this.state.total_price} KM</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  const { message } = state.message;
-  const { user } = state.auth;
   return {
-    message,
-    user,
+    orders: Object.values(state.restRed.orders),
   };
 }
 
-export default connect(mapStateToProps)(AddDeliverer);
+export default connect(mapStateToProps)(OrderDetails);

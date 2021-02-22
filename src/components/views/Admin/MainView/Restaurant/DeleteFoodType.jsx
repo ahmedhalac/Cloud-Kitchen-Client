@@ -21,7 +21,7 @@ class DeleteFoodType extends Component {
           onClick={this.deleteFoodType}
           style={{ marginTop: "2em" }}
         >
-          <i className="fa fa-trash fa-lg" aria-hidden="true"></i>
+          <i className="fal fa-trash-alt fa-lg" aria-hidden="true"></i>
         </button>
       </div>
     );

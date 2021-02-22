@@ -11,6 +11,7 @@ const Cards = ({
   city = "",
   stars = "",
   typeId = "",
+  deliver_distance = "",
 }) => {
   return (
     <div>
@@ -19,6 +20,7 @@ const Cards = ({
         style={{
           width: "17rem",
           padding: "0",
+          marginBottom: "2em",
           fontWeight: "normal",
         }}
       >
@@ -26,10 +28,24 @@ const Cards = ({
           {name}
         </Card.Header>
         <Card.Body>
-          <Card.Text>{address}</Card.Text>
-          <Card.Text>{city}</Card.Text>
-          <Card.Text>Broj zvjezdica: {stars}</Card.Text>
-          <Card.Text>Tip: {typeId}</Card.Text>
+          <Card.Text>
+            <i className="fas fa-utensils"></i> {typeId}
+          </Card.Text>
+          <Card.Text>
+            <i className="fa fa-address-book-o" aria-hidden="true"></i>{" "}
+            {address}
+          </Card.Text>
+          <Card.Text>
+            <i className="fa fa-map-marker" aria-hidden="true"></i> {city}
+          </Card.Text>
+          <Card.Text>
+            <i className="fa fa-star" aria-hidden="true"></i> {stars}
+          </Card.Text>
+
+          <Card.Text>
+            <i className="fas fa-route" aria-hidden="true"></i>{" "}
+            {deliver_distance}km
+          </Card.Text>
           <EditRestaurant
             id={id}
             name={name}
@@ -37,6 +53,7 @@ const Cards = ({
             city={city}
             stars={stars}
             typeId={typeId}
+            deliver_distance={deliver_distance}
           />
         </Card.Body>
       </Card>
